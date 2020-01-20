@@ -39,7 +39,7 @@ public class AdminController
 		return dao.addQuestion(question);
 	}
 	
-	@GetMapping("/deleteQuestion/{qid}")
+	@DeleteMapping("/deleteQuestion/{qid}")
 	public String removeQuestion(@PathVariable int qid)
 	{
 		System.out.println("");

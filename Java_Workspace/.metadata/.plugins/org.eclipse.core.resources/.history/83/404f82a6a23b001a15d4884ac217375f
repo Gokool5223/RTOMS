@@ -39,7 +39,7 @@ public class AdminController
 		return dao.addQuestion(question);
 	}
 	
-	@GetMapping("/deleteQuestion/{qid}")
+	@DeleteMapping("/deleteQuestion/{qid}")
 	public String removeQuestion(@PathVariable int qid)
 	{
 		System.out.println("");
@@ -53,7 +53,7 @@ public class AdminController
 		return dao.updateAnswer(question);
 	}
 	
-	@GetMapping("/questionList")
+	@GetMapping("/exam")
 	public List<Question> getQuestionPaper() {
 		System.out.println("in Question paper");
 		return dao.getQuestion();

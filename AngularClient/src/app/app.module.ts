@@ -22,6 +22,9 @@ import { QuestionPaperComponent } from './question-paper/question-paper.componen
 import { UserService } from './user.service';
 import { AdminService } from './admin.service';
 import { ManageExamModuleComponent } from './manage-exam-module/manage-exam-module.component';
+import { AddQuestionComponent } from './add-question/add-question.component';
+import { DeleteQuestionComponent } from './delete-question/delete-question.component';
+import { UpdateQuestionComponent } from './update-question/update-question.component';
 
 
 
@@ -42,7 +45,10 @@ import { ManageExamModuleComponent } from './manage-exam-module/manage-exam-modu
     RtoHomeComponent,
     UserHomeComponent,
     QuestionPaperComponent,
-    ManageExamModuleComponent
+    ManageExamModuleComponent,
+    AddQuestionComponent,
+    DeleteQuestionComponent,
+    UpdateQuestionComponent
    
     
   ],
@@ -65,7 +71,10 @@ import { ManageExamModuleComponent } from './manage-exam-module/manage-exam-modu
       {path:"rto-Home",component:RtoHomeComponent},
       {path:"user-Home",component:UserHomeComponent},
       {path:"question-Paper",component:QuestionPaperComponent},
-      {path:"manageExamModule",component:ManageExamModuleComponent}
+      {path:"manageExamModule",component:ManageExamModuleComponent},
+      {path:"addQuestion",component:AddQuestionComponent},
+      {path:"deleteQuestion",component:DeleteQuestionComponent},
+      {path:"updateQuestion",component:UpdateQuestionComponent}
 
 
 

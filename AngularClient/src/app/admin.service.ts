@@ -17,15 +17,22 @@ export class AdminService {
 
   }
 
-  deleteQuestion(admin){
+  deleteQuestion(id:number){
 
-    return this.http.post("http://localhost:8080/DacAug19old/admin/deleteQuestion",admin);
+    return this.http.get("http://localhost:8080/DacAug19old/admin/deleteQuestion/"+id);
 
   }
 
   updateQuestion(admin){
 
     return this.http.post("http://localhost:8080/DacAug19old/admin/updateQuestion",admin);
+
+  }
+  
+
+  getQuestions()
+  {
+    return this.http.get("http://localhost:8080/DacAug19old/admin/questionList");
 
   }
 
