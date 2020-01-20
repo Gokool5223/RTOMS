@@ -1,0 +1,81 @@
+package com.app.pojos;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+
+@Entity
+public class Response 
+{
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	public Integer getReponseId() {
+		return reponseId;
+	}
+
+
+
+	public void setReponseId(Integer reponseId) {
+		this.reponseId = reponseId;
+	}
+
+
+
+	private Integer reponseId;
+	private Integer submittedAns;
+	private Integer questionId;
+	
+	
+	public Response() {
+		System.out.println("in Response");
+	}
+	
+	
+
+	public Response(Integer submittedAns, Integer questionId, Integer userId) {
+		super();
+		this.submittedAns = submittedAns;
+		this.questionId = questionId;
+		
+	}
+
+
+
+	public Integer getSubmittedAns() {
+		return submittedAns;
+	}
+	public void setSubmittedAns(Integer submittedAns) {
+		this.submittedAns = submittedAns;
+	}
+	public Integer getQuestionId() {
+		return questionId;
+	}
+	public void setQuestionId(Integer questionId) {
+		this.questionId = questionId;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Response [reponseId=" + reponseId + ", submittedAns=" + submittedAns + ", questionId=" + questionId
+				+ "]";
+	}
+
+
+
+	
+
+
+
+
+	
+	
+	
+
+	
+
+}
+	

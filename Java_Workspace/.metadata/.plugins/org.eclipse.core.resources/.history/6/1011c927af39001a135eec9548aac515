@@ -1,0 +1,73 @@
+package com.app.pojos;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="contents")
+public class Content {
+	private Integer id;
+	private String topicName;
+	private String content;
+	
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
+	@Column(name="topic_name")
+	public String getTopicName() {
+		return topicName;
+	}
+	public void setTopicName(String topicName) {
+		this.topicName = topicName;
+	}
+	
+	@Column(name="content" , length=1000)
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	
+	
+	@ManyToOne
+	@JoinColumn(name="subject_id")
+	public Subject getSubject() {
+		return subject;
+	}
+	
+	public void setSubject(Subject subject) {
+		this.subject = subject;
+	}
+	@Override
+	public String toString() {
+		return "Content [id=" + id + ", topicName=" + topicName + ", content=" + content + "]";
+	}
+	public Content(Integer id, String topicName, String content, Subject subject) {
+		super();
+		this.id = id;
+		this.topicName = topicName;
+		this.content = content;
+		this.subject = subject;
+	}
+	
+	public Content() {
+		
+	}
+	
+	
+}

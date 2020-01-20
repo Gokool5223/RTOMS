@@ -1,0 +1,13 @@
+package com.app.dao;
+
+import java.util.List;
+
+import javax.persistence.criteria.CriteriaUpdate;
+
+import com.app.pojos.Question;
+
+public interface IQuestionDao 
+{
+	
+
+}

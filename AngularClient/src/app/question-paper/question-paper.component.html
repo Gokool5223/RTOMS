@@ -1,0 +1,41 @@
+<p>
+  test works!
+</p>
+<div class="container">
+  <h2>Questions</h2>
+  <ul class="list-group">
+    <li *ngFor="let question of questions; let i = index " class="list-group-item">{{i+1}}. {{question.question}}
+      <div  class="radio">
+        <label><input type="radio" value="1" name="optradio{{i}}" (click)="setAnswer(1,question.id,i)" >{{question.option1}}</label>
+      </div>
+      <div  class="radio">
+        <label><input type="radio" value="2" name="optradio{{i}}" (click)="setAnswer(2,question.id,i)" >{{question.option2}}</label>
+      </div>
+      <div  class="radio">
+        <label><input type="radio" value="3" name="optradio{{i}}" (click)="setAnswer(3,question.id,i)">{{question.option3}}</label>
+      </div>
+      <div  class="radio">
+        <label><input type="radio" value="4" name="optradio{{i}}" (click)="setAnswer(4,question.id,i)" >{{question.option4}}</label>
+      </div>
+      <!-- /{{i}} -->
+    </li>
+    <!-- <li class="list-group-item">Second item
+      <div class="radio">
+        <label><input type="radio" name="optradio" checked>Option 1</label>
+      </div>
+    </li>
+    <li class="list-group-item">Third item
+      <div class="radio">
+        <label><input type="radio" name="optradio" checked>Option 1</label>
+      </div>
+    </li> -->
+  </ul>
+
+
+  <button type="button" class="btn btn-success" (click)="submitAnswer()">Submit</button>
+
+  <div>
+   <h4> Your Score is: {{marks}}</h4>
+  </div>
+ 
+</div>

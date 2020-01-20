@@ -1,0 +1,17 @@
+package com.app.pojos;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="question")
+public class Question implements java.io.Serializable
+{
+	private Integer questionId;
+	private String content;
+	private Set<Answer>answers=new HashSet<Answer>(0);
+	
+
+}

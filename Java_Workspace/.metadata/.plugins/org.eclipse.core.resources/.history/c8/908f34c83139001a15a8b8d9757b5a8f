@@ -1,0 +1,12 @@
+package com.app.pojos;
+
+import javax.persistence.*;
+
+@Entity
+@SuppressWarnings("serial")
+@Table(name = "question_options")
+public class QuestionOptions 
+{
+
+	
+}

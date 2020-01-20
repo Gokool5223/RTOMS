@@ -1,0 +1,48 @@
+package com.app.dao;
+
+import java.util.List;
+
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.app.pojos.Questions;
+
+@Service
+@Transactional
+public class QuestionsDaoImpl implements IQuestionsDao {
+	@Autowired
+	private SessionFactory sf;
+
+	@Override
+	public List<Questions> listQuestions() {
+		String jpql="select q from Questions q";
+		return sf.getCurrentSession().createQuery(jpql,Questions.class).getResultList();
+	}
+
+	@Override
+	public void saveQuestions(Questions questions) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateQuestions(Questions questions) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteQuestions(Questions questions) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Questions> getTenRandomQuestionsByLanguageId(Long languageId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,31 @@
+package com.app.pojos;
+
+import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+
+
+@Entity
+public class Response 
+{
+	
+	
+	private Integer responseId;
+	private Integer submittedAns;
+	private Integer questionId;
+	private Integer userId;
+	
+	
+	
+	public Response() {
+		System.out.println("in Response");
+	}
+	
+	
+	
+	
+	
+
+	
+
+}
+	

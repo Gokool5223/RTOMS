@@ -1,0 +1,47 @@
+package com.app.pojos;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity
+@Table(name="test_result")
+public class TestResult {
+	private Integer ansid;
+	private User usert;
+	
+	
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="ansId")
+	public Integer getAnsid() {
+		return ansid;
+	}
+	public void setAnsid(Integer ansid) {
+		this.ansid = ansid;
+	}
+	
+	@JsonIgnore
+	@OneToOne
+	@JoinColumn(name="user_id")
+	public User getUsert() {
+		return usert;
+	}
+	public void setUsert(User usert) {
+		this.usert = usert;
+	}
+	
+	
+	
+	
+	
+	
+}

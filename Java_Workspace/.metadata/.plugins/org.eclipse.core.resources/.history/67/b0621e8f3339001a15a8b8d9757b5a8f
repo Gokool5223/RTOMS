@@ -1,0 +1,27 @@
+package com.app.dao;
+
+import java.util.List;
+
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.app.pojos.Language;
+
+public class LanguageDaoImpl implements ILanguageDao
+{
+	@Autowired
+	private SessionFactory sessionFactory;
+
+	public List<Language> listLanguages() {
+		return (List<Language>) sessionFactory.getCurrentSession()
+				.createCriteria(Language.class).list();
+	}
+
+	@Override
+	public List<Language> getLanguageByLanguageId(Long languageId) {
+		return sessionFactory.getCurrentSession().createQuery(
+				"from Language where languageId=:languageId").setParameter(
+				"languageId", languageId).list();
+	}
+
+}

@@ -1,0 +1,63 @@
+package com.app.dao;
+
+import java.util.List;
+
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.app.pojos.Questions;
+
+@Service
+@Transactional
+public class QuestionsDaoImpl implements IQuestionsDao {
+	@Autowired
+	SessionFactory sf;
+
+	@Override
+	public List<Questions> listQuestions() {
+		String jpql="select q from Questions q where languageId=:languageId ORDER BY questionId DESC ";
+		return sf.getCurrentSession().createQuery(jpql,Questions.class).getResultList();
+	}
+
+	@Override
+	public void saveQuestions(Questions questions) {
+		sf.getCurrentSession().save(questions);
+		
+		
+	}
+
+	@Override
+	public void updateQuestions(Questions questions) {
+		sf
+		.getCurrentSession()
+		.createQuery(
+				"UPDATE Questions SET languageId=:languageId ,question=:question , rightOption=:rightOption where questionId=:questionId")
+		.setParameter("languageId", questions.getLanguageId())
+		.setParameter("question", questions.getQuestion())
+		.setParameter("rightOption", questions.getRightOption())
+		.setParameter("questionId", questions.getQuestionId())
+		.executeUpdate();
+		
+	}
+
+	@Override
+	public void deleteQuestions(Questions questions) {
+		sf.getCurrentSession().createQuery(
+				"delete from Questions where questionId=:questionId")
+				.setParameter("questionId", questions.getQuestionId())
+				.executeUpdate();
+	}
+
+	@Override
+	public List<Questions> getTenRandomQuestionsByLanguageId(Long languageId) {
+		String jpql="select q from Questions q where languageId=:languageId ORDER BY rand() ";
+		
+		return (List<Questions>) sf
+				.getCurrentSession()
+				.createQuery(jpql,Questions.class).setParameter("languageId", languageId).setMaxResults(10).getResultList();
+				
+	}
+
+}

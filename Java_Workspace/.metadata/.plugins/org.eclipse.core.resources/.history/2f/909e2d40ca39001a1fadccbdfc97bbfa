@@ -1,0 +1,39 @@
+package com.app.dao;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.app.pojos.Answer;
+import com.app.pojos.Question;
+import com.app.pojos.User;
+
+@Repository
+public class QuestionDaoImpl implements IQuestionDao{
+	
+	@Autowired
+	SessionFactory sf;
+
+	@Override
+	public List<Question> getQuestion(Integer id) 
+	{
+	
+		return null;
+	}
+
+	@Override
+	public void updateAnswer(Integer ansKey, Integer id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Integer getScore(List<Answer> dtos) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}
+

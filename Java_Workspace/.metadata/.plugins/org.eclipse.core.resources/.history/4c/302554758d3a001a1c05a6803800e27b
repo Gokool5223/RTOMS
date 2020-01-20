@@ -1,0 +1,61 @@
+package com.app.pojos;
+
+import javax.persistence.Embeddable;
+
+
+@Embeddable
+public class Response 
+{
+	
+	private Integer submittedAns;
+	private Integer questionId;
+	private Integer userId;
+	
+	public Response() {
+		System.out.println("in Response");
+	}
+	
+	
+
+	public Response(Integer submittedAns, Integer questionId, Integer userId) {
+		super();
+		this.submittedAns = submittedAns;
+		this.questionId = questionId;
+		this.userId = userId;
+	}
+
+
+
+	public Integer getSubmittedAns() {
+		return submittedAns;
+	}
+	public void setSubmittedAns(Integer submittedAns) {
+		this.submittedAns = submittedAns;
+	}
+	public Integer getQuestionId() {
+		return questionId;
+	}
+	public void setQuestionId(Integer questionId) {
+		this.questionId = questionId;
+	}
+	public Integer getUserId() {
+		return userId;
+	}
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Response [submittedAns=" + submittedAns + ", questionId=" + questionId + ", userId=" + userId + "]";
+	}
+	
+	
+	
+
+	
+
+}
+	

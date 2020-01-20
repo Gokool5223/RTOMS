@@ -1,0 +1,13 @@
+/*package com.app.pojos;
+
+public class Response 
+{
+	private Integer responseId;
+	private Integer submittedAns;
+	private User user;
+	private Question question;
+	
+*/	
+	
+
+}

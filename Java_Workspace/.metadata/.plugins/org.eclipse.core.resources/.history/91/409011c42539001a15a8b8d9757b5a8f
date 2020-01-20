@@ -1,0 +1,25 @@
+package com.app.pojos;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "question")
+public class Question 
+{
+	@Id
+	@GeneratedValue
+	@Column(name = "ques_id")
+	private Long questionId;
+	
+
+	@Column(name = "question")
+	private String question;
+
+	@Column(name = "right_option")
+	private Long rightOption;
+	
+	
+
+	
+
+}

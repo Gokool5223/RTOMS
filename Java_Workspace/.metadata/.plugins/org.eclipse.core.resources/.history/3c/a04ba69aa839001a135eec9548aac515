@@ -1,0 +1,78 @@
+package com.app.pojos;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="answer")
+public class Answer 
+{
+	private Integer answerId;
+	private String ansContent;
+	private boolean correct;
+	private Question question;
+	
+	public Answer() {
+		
+	}
+
+	public Answer(Integer answerId, String ansContent, boolean correct) {
+		super();
+		this.answerId = answerId;
+		this.ansContent = ansContent;
+		this.correct = correct;
+	}
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "answerId",unique = true,nullable = false)
+	public Integer getAnswerId() {
+		return answerId;
+	}
+
+	public void setAnswerId(Integer answerId) {
+		this.answerId = answerId;
+	}
+
+	@Column(name = "content",nullable = false,length = 60000)
+	public String getAnsContent() {
+		return ansContent;
+	}
+
+	public void setAnsContent(String ansContent) {
+		this.ansContent = ansContent;
+	}
+
+	@Column(name = "correct",nullable = false)
+	public boolean isCorrect() {
+		return correct;
+	}
+
+	public void setCorrect(boolean correct) {
+		this.correct = correct;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "que_id",nullable = false)
+	public Question getQuestion() {
+		return question;
+	}
+
+	public void setQuestion(Question question) {
+		this.question = question;
+	}
+	
+	
+	
+	
+	
+
+}

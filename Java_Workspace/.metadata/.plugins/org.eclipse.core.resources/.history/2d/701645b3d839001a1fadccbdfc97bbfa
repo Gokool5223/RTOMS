@@ -1,0 +1,140 @@
+package com.app.pojos;
+
+import java.util.List;
+
+import javax.persistence.*;
+
+
+
+
+@Entity
+public class User 
+{
+	
+	 private Integer userId;
+	 private String email;
+	 private String userName;
+	 private String password;
+	 private Role role;
+	 private List<Question> question;	 	
+	 private List<TestResult> testResults;
+	 private List<Answer> answer;	
+	 
+	 public User() {
+		System.out.println("in user class");
+	}
+
+ 
+ 
+
+
+	public User(Integer userId, String email, String userName, String password) {
+		super();
+		this.userId = userId;
+		this.email = email;
+		this.userName = userName;
+		this.password = password;
+	}
+	 
+	 
+
+
+	
+	 @Id
+	 @GeneratedValue(strategy = GenerationType.IDENTITY)
+	 public Integer getUserId() {
+		return userId;
+	 }
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+	
+	@Column(unique = true,nullable = false)
+	public String getEmail() {
+		return email;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	@Column(nullable = false)
+	public String getUserName() {
+		return userName;
+	}
+	
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	
+	@Column(nullable = false)
+	public String getPassword() {
+		return password;
+	}
+	
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	
+	
+	@Enumerated(EnumType.STRING)
+	public Role getRole() {
+		return role;
+	}
+
+
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+	
+	
+	
+	@OneToMany(mappedBy="user",cascade=CascadeType.ALL)
+	public List<TestResult> getTestResults() {
+		return testResults;
+	}
+	public void setTestResults(List<TestResult> testResults) {
+		this.testResults = testResults;
+	}
+	
+
+	@OneToMany(mappedBy="user",cascade=CascadeType.ALL)
+	 public List<Question> getQuestion() {
+		return question;
+	}
+
+	 public void setQuestion(List<Question> question) {
+		this.question = question;
+	}
+	 
+	 @OneToMany(mappedBy="user",cascade=CascadeType.ALL)
+	 public List<Answer> getAnswer() {
+			return answer;
+		}
+
+
+
+
+
+		public void setAnswer(List<Answer> answer) {
+			this.answer = answer;
+		}
+
+
+
+
+
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", email=" + email + ", userName=" + userName + ", password=" + password
+				+ ", role=" + role + "]";
+	}
+
+
+
+	 
+		
+}

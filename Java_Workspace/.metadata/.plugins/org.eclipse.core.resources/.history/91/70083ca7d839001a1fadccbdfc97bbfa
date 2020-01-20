@@ -1,0 +1,18 @@
+package com.app.dao;
+
+import java.util.List;
+
+import com.app.pojos.Answer;
+import com.app.pojos.Question;
+
+public interface IQuestionDao 
+{
+List<Question> getQuestion(Integer id);
+	
+	void updateAnswer(Integer ansKey,Integer id);
+	
+	//Integer getScore(List<Answer> dtos);
+
+	
+
+}

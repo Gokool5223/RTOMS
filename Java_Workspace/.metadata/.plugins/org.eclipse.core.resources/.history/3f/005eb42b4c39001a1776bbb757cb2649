@@ -1,0 +1,23 @@
+package com.app.dao;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.app.pojos.Questions;
+
+@Service
+@Transactional
+public interface IQuestionsDao 
+{
+	public List<Questions> listQuestions();
+	public void saveQuestions(Questions questions);
+
+	public void updateQuestions(Questions questions);
+
+	public void deleteQuestions(Questions questions);
+	
+	public List<Questions> getTenRandomQuestionsByLanguageId(Long languageId);
+
+}

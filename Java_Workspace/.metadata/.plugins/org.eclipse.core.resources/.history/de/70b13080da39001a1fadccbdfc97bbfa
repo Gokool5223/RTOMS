@@ -1,0 +1,44 @@
+package com.app.dao;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+//import com.app.pojos.Answer;
+import com.app.pojos.Question;
+import com.app.pojos.User;
+
+@Repository
+@Transactional
+public class QuestionDaoImpl implements IQuestionDao{
+	
+	@Autowired
+	private SessionFactory sf;
+
+	@Override
+	public List<Question> getQuestion(Integer id) 
+	{
+		String jpql = "select q from Question q ";
+		return sf.getCurrentSession().createQuery(jpql, Question.class).getResultList();
+	
+
+	}
+
+	@Override
+	public void updateAnswer(Integer ansKey, Integer id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	/*@Override
+	public Integer getScore(List<Answer> dtos) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	*/
+}
+

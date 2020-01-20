@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.app.pojos.Responce&apos; to &apos;Response&apos;&#x0A;- Original project: &apos;DacAug19old&apos;&#x0A;- Original element: &apos;com.app.pojos.Responce&apos;&#x0A;- Renamed element: &apos;com.app.pojos.Response&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Responce&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.app.pojos{Responce.java[Responce" matchStrategy="1" name="Response" qualified="false" references="true" similarDeclarations="false" stamp="1579412604994" textual="false" version="1.0"/>
+</session>

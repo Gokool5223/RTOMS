@@ -1,0 +1,14 @@
+package com.app.pojos;
+
+public class Answer {
+	Integer questionId;
+	Integer ans;
+	Integer userId;
+	
+	public Answer() {
+		// TODO Auto-generated constructor stub
+	}
+
+		
+
+}

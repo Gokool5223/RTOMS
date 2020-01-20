@@ -1,0 +1,14 @@
+package com.app.dao;
+
+import java.util.List;
+
+import com.app.pojos.QuestionOptions;
+
+public interface IQuestionsOptionsDao {
+	
+	public List<QuestionOptions> listQuestionOptions();
+
+	public List<QuestionOptions> getQuestionOptionsByQuestionId(int questionId);
+	
+
+}

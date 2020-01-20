@@ -1,0 +1,40 @@
+package com.app.pojos;
+
+public class Answer {
+	Integer questionId;
+	Integer ans;
+	
+	
+	public Answer() 
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+	public Answer(Integer questionId, Integer ans, Integer userId) {
+		super();
+		this.questionId = questionId;
+		this.ans = ans;
+		
+	}
+
+	public Integer getQuestionId() {
+		return questionId;
+	}
+
+	public void setQuestionId(Integer questionId) {
+		this.questionId = questionId;
+	}
+
+	public Integer getAns() {
+		return ans;
+	}
+
+	public void setAns(Integer ans) {
+		this.ans = ans;
+	}
+
+	
+
+		
+
+}

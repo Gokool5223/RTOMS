@@ -1,0 +1,19 @@
+package com.app.pojos;
+
+import javax.persistence.*;
+
+public class QuestionOptions 
+{
+	@Id
+	@GeneratedValue
+	@Column(name = "ques_op_id")
+	private Long quesOpId;
+
+	@Column(name = "ans_description")
+	private String ansDescription;
+
+	@Column(name = "ques_id")
+	private Long questionId;
+
+
+}
