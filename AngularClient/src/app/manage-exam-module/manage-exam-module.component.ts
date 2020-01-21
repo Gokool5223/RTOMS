@@ -24,7 +24,7 @@ export class ManageExamModuleComponent implements OnInit {
   }
 
   deleteQuestion(question)
-  {
+  { 
     console.log("in delete");
     console.log(question);
     this.service.deleteQuestion(question).subscribe((res)=>

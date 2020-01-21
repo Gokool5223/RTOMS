@@ -24,6 +24,9 @@ import { AdminService } from './admin.service';
 import { ManageExamModuleComponent } from './manage-exam-module/manage-exam-module.component';
 import { AddQuestionComponent } from './add-question/add-question.component';
 import { UpdateQuestionComponent } from './update-question/update-question.component';
+import { AddRtoComponent } from './add-rto/add-rto.component';
+import { UpdateRtoComponent } from './update-rto/update-rto.component';
+import { ManageRtoComponent } from './manage-rto/manage-rto.component';
 
 
 
@@ -48,6 +51,9 @@ import { UpdateQuestionComponent } from './update-question/update-question.compo
     ManageExamModuleComponent,
     AddQuestionComponent,
     UpdateQuestionComponent,
+    AddRtoComponent,
+    UpdateRtoComponent,
+    ManageRtoComponent,
     
    
     
@@ -73,7 +79,10 @@ import { UpdateQuestionComponent } from './update-question/update-question.compo
       {path:"question-Paper",component:QuestionPaperComponent},
       {path:"manageExamModule",component:ManageExamModuleComponent},
       {path:"addQuestion",component:AddQuestionComponent},
-      {path:"updateQuestion",component:UpdateQuestionComponent}
+      {path:"updateQuestion",component:UpdateQuestionComponent},
+      {path:"addRto",component:AddRtoComponent},
+      {path:"updateRto",component:UpdateRtoComponent},
+      {path:"manageRto",component:ManageRtoComponent}
 
 
 

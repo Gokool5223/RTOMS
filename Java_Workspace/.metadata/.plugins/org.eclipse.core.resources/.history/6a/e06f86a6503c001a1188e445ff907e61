@@ -11,6 +11,5 @@ public interface IRtoDao {
 	List<User> getAllRto();
 	String deleteRto(int userId);
 	String updateRto(User u);
-	User getRtoDetails(int userId);
 
 }

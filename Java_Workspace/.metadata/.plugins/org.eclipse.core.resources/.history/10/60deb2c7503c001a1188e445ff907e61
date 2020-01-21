@@ -54,13 +54,6 @@ public class RtoDaoImpl implements IRtoDao
 			
 			return "Rto updated  ";
 		}
-
-
-	@Override
-	public User getRtoDetails(int userId) {
-		
-		return sf.getCurrentSession().get(User.class,userId);
-	}
 	
 
 }

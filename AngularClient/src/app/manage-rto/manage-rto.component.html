@@ -1,0 +1,61 @@
+
+<div class="container">
+  <div class="table-wrapper">
+      <div class="table-title">
+          <div class="row">
+              <div class="col-sm-6">
+      <h2>Manage <b>RTO Module</b></h2>
+            </div>
+            <div class="col-sm-6">
+                <a routerLink="/addRto" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add Rto</span></a>
+                
+        </div>
+    
+      </div>
+
+  </div>
+  <div class="container">
+    <h2>RTO</h2>
+    <ul class="list-group">
+     
+      
+      <div class="table-responsive">
+        <table class="table table-hover" >
+          <thead>
+            <tr>
+                <th>
+                    <span class="custom-checkbox">
+                      <input type="checkbox" id="selectAll">
+                      <label for="selectAll"></label>
+                    </span>
+                  </th>
+                <th>RTO User Id</th>
+                <th>RTO Name</th>
+                <th>Password</th>
+                
+                
+            </tr>
+          </thead>
+              
+
+      <tbody style="font-size: 15px">
+          <tr *ngFor="let user of users">
+        
+
+            
+            <td> <input type="checkbox" id="checkbox" name="options[]" value="1"></td>
+            <td>{{user.userId}}</td>
+            <td>{{user.userName}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.password}}</td>
+            
+            <td>
+              <button type="button"  class="delete" class="btn btn-danger" (click)="deleteRto(user.userId)">Delete</button><br>
+              </td>&nbsp;&nbsp;
+            <td> <button type="button"   (click)="senddata(user.userId)" class="updateRto" class="btn btn-success"  (click)="updateRto(user.userId)">Edit</button></td>
+        </tr>
+      </tbody>
+  
+
+
+          

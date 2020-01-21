@@ -118,7 +118,7 @@ public class AdminController
 		
 	}
 	
-	@GetMapping("/deleteRto/{userId}")
+	@DeleteMapping("/deleteRto/{userId}")
 	public Integer deleteRto(@PathVariable int userId)
 	{
 		System.out.println(userId);

@@ -118,7 +118,7 @@ public class AdminController
 		
 	}
 	
-	@GetMapping("/deleteRto/{userId}")
+	@DeleteMapping("/deleteRto/{userId}")
 	public Integer deleteRto(@PathVariable int userId)
 	{
 		System.out.println(userId);
@@ -135,9 +135,9 @@ public class AdminController
 	}
 	
 	@GetMapping("/rtoDetails")
-	public User getRtodetails(int userId)
+	public Question getRtodetails(int userId)
 	{
-		return irtoDao.getRtoDetails(userId);
+		return dao.getQuestionDetails(userId);
 	}
 	
 	

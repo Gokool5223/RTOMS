@@ -59,7 +59,7 @@ public class RtoDaoImpl implements IRtoDao
 	@Override
 	public User getRtoDetails(int userId) {
 		
-		return sf.getCurrentSession().get(User.class,userId);
+		return null;
 	}
 	
 
