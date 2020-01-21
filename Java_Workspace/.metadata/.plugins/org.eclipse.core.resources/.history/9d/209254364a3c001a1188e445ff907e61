@@ -1,0 +1,59 @@
+package com.app.dao;
+
+import java.util.List;
+
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.app.pojos.Question;
+import com.app.pojos.Role;
+import com.app.pojos.User;
+@Service
+@Transactional
+public class RtoDaoImpl implements IRtoDao
+{
+	@Autowired
+	private SessionFactory sf;
+
+	@Override
+	public Integer registerRTO(User user) 
+	{
+		
+		user.setRole(Role.RTO);
+		return (Integer) sf.getCurrentSession().save(user);
+	}
+	
+
+	@Override
+	public List<User> getAllRto() {
+		String jpql = "select u from User u where u.role='RTO' ";
+		return sf.getCurrentSession().createQuery(jpql, User.class).getResultList();
+	
+	}
+
+	@Override
+	public String deleteRto(int userId) {
+		
+			User u=sf.getCurrentSession().get(User.class,userId);
+			sf.getCurrentSession().delete(u);
+			return "sucessfully deleted";
+			
+		
+	}
+
+	@Override
+	public String updateRto(User u) {
+		
+			
+			User user=sf.getCurrentSession().get(User.class, u.getUserId());
+			user.setUserName(u.getUserName());
+			user.setUserName(u.getEmail());
+			user.setUserName(u.getPassword());
+			
+			return "Rto updated in Question";
+		}
+	
+
+}

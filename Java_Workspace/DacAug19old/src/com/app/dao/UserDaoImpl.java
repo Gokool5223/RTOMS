@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.app.pojos.Otp;
 import com.app.pojos.Question;
 import com.app.pojos.Response;
+import com.app.pojos.Role;
 import com.app.pojos.User;
 
 @Service
@@ -24,8 +25,11 @@ public class UserDaoImpl implements IUserDao
 	@Override
 	public Integer registerUser(User user) {
 		
+		user.setRole(Role.RTO);
 		return (Integer) sf.getCurrentSession().save(user);
 	}
+	
+	
 
 
 	@Override
@@ -113,6 +117,14 @@ System.out.println(u.getRole());
 		return sf.getCurrentSession().createQuery(jpql, Response.class).getResultList();
 		
 	
+	}
+
+	@Override
+	public Integer registerRTO(User user) 
+	{
+		
+		user.setRole(Role.RTO);
+		return (Integer) sf.getCurrentSession().save(user);
 	}
 
 /*

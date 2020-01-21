@@ -1,3 +1,42 @@
-<p>
-  update-question works!
-</p>
+<h1 style="text-align: center;">Update Question</h1>
+
+
+ 
+
+    <div class="form-group">
+        QuestionId
+        <input type="text" name="qid" ngModel class="form-control" [(ngModel)]="adqid" id="question" placeholder="Enter Question" disabled>
+      </div>
+    <div class="form-group">
+        Question
+        <input type="text" name="question" ngModel class="form-control" [(ngModel)]="adquestion" id="question" placeholder="Enter Question">
+      </div>
+    
+      <div class="form-group">
+       Option 1
+        <input type="text" name="option1" ngModel class="form-control" [(ngModel)]="adop1" id="option1" placeholder="Enter Option 1">
+      </div>
+      <div class="form-group">
+          Option 2
+           <input type="text" name="option2" ngModel class="form-control" [(ngModel)]="adop2" id="option2" placeholder="Enter Option 2">
+         </div>
+      
+       <div class="form-group">
+       Option 3
+        <input type="text" name="option3" ngModel class="form-control" [(ngModel)]="adop3" id="option3" placeholder="Enter Option 3">
+      </div>
+      <div class="form-group">
+          Option 4
+           <input type="text" name="option4" ngModel class="form-control" [(ngModel)]="adop4" id="option4" placeholder="Enter Option 4">
+         </div>
+       <div class="form-group">
+            Answer Key
+             <input type="number" name="answerKey" ngModel class="form-control"  [(ngModel)]="adanskey" placeholder="Enter Option 3">
+           </div>
+           
+          
+      
+      <button type="submit"  (click)="updateQuestion()"  class="btn btn-success">update</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button type="submit" class="btn btn-danger" (click)="cancel()">Cancel</button>
+    
+    

@@ -22,13 +22,20 @@ export class AdminService {
     return this.http.get("http://localhost:8080/DacAug19old/admin/deleteQuestion/"+id);
 
   }
+  updateQues(ques)
+  {
+    return this.http.post("http://localhost:8080/DacAug19old/admin/updateQuestion",ques);
+  }
 
   updateQuestion(admin){
 
     return this.http.post("http://localhost:8080/DacAug19old/admin/updateQuestion",admin);
 
   }
-  
+  getQuestionDetails(qid)
+  {
+    return this.http.get("http://localhost:8080/DacAug19old/admin/questionDetails?qid="+qid);
+  }
 
   getQuestions()
   {

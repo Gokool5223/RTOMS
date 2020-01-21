@@ -17,7 +17,9 @@ export class LoginComponent implements OnInit {
     {
       let data = loginForm.form.value;
      this.userService.login(data).subscribe(res=>{
+       debugger
       sessionStorage['email']=res['email'];
+      sessionStorage['uid']=res['userId'];
       console.log(res.toString())
       this.emService.logInBtnSwitch(true);//
       if(res['role']=='ADMIN')

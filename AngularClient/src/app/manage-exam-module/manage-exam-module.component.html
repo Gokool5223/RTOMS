@@ -59,7 +59,7 @@
             <td>
               <button type="button"  class="delete" class="btn btn-danger" (click)="deleteQuestion(question.qid)">Delete</button><br>
               </td>&nbsp;&nbsp;
-            <td> <button type="button"   routerLink="/updateQuestion" class="delete" class="btn btn-success"  (click)="updateQuestion(question.qid)">Edit</button></td>
+            <td> <button type="button"   (click)="senddata(question.qid)" class="updatequestion" class="btn btn-success"  (click)="updateQuestion(question.qid)">Edit</button></td>
         </tr>
       </tbody>
   

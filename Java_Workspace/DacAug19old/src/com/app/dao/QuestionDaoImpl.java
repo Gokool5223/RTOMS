@@ -36,7 +36,7 @@ public class QuestionDaoImpl implements IQuestionDao{
 	@Override
 	public String addQuestion(Question question) {
 		sf.getCurrentSession().persist(question);
-		return "Question added"+question.getQid();
+		return "Question added";
 	}
 
 	@Override
@@ -89,6 +89,13 @@ public class QuestionDaoImpl implements IQuestionDao{
 		
 		
 		return marks;
+	}
+
+
+
+	@Override
+	public Question getQuestionDetails(int qid) {
+		return sf.getCurrentSession().get(Question.class,qid);
 	}
 
 	

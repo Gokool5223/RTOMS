@@ -1,0 +1,38 @@
+package com.app.dao;
+
+import java.util.List;
+
+import com.app.pojos.Role;
+import com.app.pojos.User;
+
+public class RtoDaoImpl implements IRtoDao
+{
+
+	@Override
+	public Integer registerRTO(User user) 
+	{
+		
+		user.setRole(Role.RTO);
+		return (Integer) sf.getCurrentSession().save(user);
+	}
+	}
+
+	@Override
+	public List<User> getAllRto() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String deleteRto(int userid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String updateRto(User u) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

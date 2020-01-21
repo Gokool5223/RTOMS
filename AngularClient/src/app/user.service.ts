@@ -42,6 +42,17 @@ export class UserService {
 
   }
 
+  getQuestionDetails(qid)
+  {
+    return this.http.get("http://localhost:8080/DacAug19old/admin/questionDetails?qid="+qid);
+  }
+
+  getMarks(answerSet,userId)
+  {
+    debugger
+    return this.http.get("http://localhost:8080/DacAug19old/user/exam/getMarks?userId="+userId,answerSet)
+  }
+
 
 
 }

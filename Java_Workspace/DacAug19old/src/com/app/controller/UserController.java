@@ -157,9 +157,11 @@ public class UserController
 	public Integer setAnswer(@RequestBody List<Response> responseList,@PathVariable int userId)
 	{
 		System.out.println(responseList);
+		System.out.println(userId);
 		return dao.getMarks(responseList);
 	}
 	
+
 	
 	
 	

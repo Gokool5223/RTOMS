@@ -20,6 +20,8 @@ public interface IUserDao
 	public List<User> getAllUsers();
 	List<Question> getAllQuestion();
 	List<Response> getAllAnswer();
+	public Integer registerRTO(User user);
+	
 //	Question getQuestions(int qid);
 	
 	
