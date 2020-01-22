@@ -153,17 +153,11 @@ public class UserController
 		return dao.getQuestion();
 	}
 	
-	@PostMapping("/exam/getMarks")
-	public Integer setAnswer(@RequestBody List<Response> responseList)
+	@PostMapping("/exam/getMarks/{userId}")
+	public Integer setAnswer(@RequestBody List<Response> responseList,@PathVariable int userId)
 	{
-		System.out.println("i am in contr");
 		System.out.println(responseList);
-//	for(int i=0;i<5;i++)
-//	{
-//	   System.out.println(Response[i]);
-//	}
-	 
-//		System.out.println(userId);
+		System.out.println(userId);
 		return dao.getMarks(responseList);
 	}
 	

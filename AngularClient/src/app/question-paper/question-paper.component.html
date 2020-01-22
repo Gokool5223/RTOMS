@@ -1,3 +1,4 @@
+<h1>Question Paper</h1>
 <p>
   test works!
 </p>
@@ -26,7 +27,45 @@
   <button type="button" class="btn btn-success" (click)="submitAnswer()">Submit</button>
 
   <div>
-   <h4> Your Score is: {{Score}}</h4>
+   <h4> Your Score is: {{score}}</h4>
   </div>
  
 </div>
+
+
+
+
+
+
+
+<!-- <form #myForm="ngForm" (ngSubmit)="submitAnswer(myForm)"class="form-inline" role="form"> -->
+    <!-- <ul class="list-group">
+        <li *ngFor="let question of questions; let i = index " class="list-group-item">{{i+1}}. {{question.question}}
+      <br>
+      <br>
+
+  <div class="form-group">
+    <label><input type="radio" value="1" name="optradio{{i}}" (click)="setAnswer(1,question.id,i)" ngModel class="form-control"  >{{question.option1}}</label>
+  </div>
+  <br>
+  <div class="form-group">
+      <label><input type="radio" value="2" name="optradio{{i}}"  (click)="setAnswer(2,question.id,i)" ngModel class="form-control"  >{{question.option2}}</label>
+    </div>
+    <br>
+  <div class="form-group">
+      <label><input type="radio" value="3" name="optradio{{i}}" (click)="setAnswer(3,question.id,i)"ngModel class="form-control" >{{question.option3}}</label>
+    </div>
+    <br>
+  <div class="form-group">
+      <label><input type="radio" value="4" name="optradio{{i}}"  (click)="setAnswer(4,question.id,i)" ngModel class="form-control"  >{{question.option4}}</label>
+    </div>
+
+    
+</li>
+  
+</ul>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+ -->

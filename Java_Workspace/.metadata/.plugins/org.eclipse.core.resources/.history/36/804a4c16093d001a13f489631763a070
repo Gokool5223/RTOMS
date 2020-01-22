@@ -158,11 +158,6 @@ public class UserController
 	{
 		System.out.println("i am in contr");
 		System.out.println(responseList);
-//	for(int i=0;i<5;i++)
-//	{
-//	   System.out.println(Response[i]);
-//	}
-	 
 //		System.out.println(userId);
 		return dao.getMarks(responseList);
 	}

@@ -15,10 +15,12 @@ export class QuestionPaperComponent implements OnInit {
   qid;
   qans;
   score;
+  y;
+  ansset=[];
 
 
   constructor(private service:UserService,private router:Router) { 
-
+    this.y=parseInt(sessionStorage.getItem('uid'));
   }
 
   // getMarks(answer)
@@ -34,26 +36,63 @@ export class QuestionPaperComponent implements OnInit {
   }
 
   setAnswer(ans,questionId,i){
-    console.log(ans+" "+questionId+" "+i);
-    this.answerSet[i].questionId=questionId;
-    this.answerSet[i].ans=ans;
-    console.log(this.answerSet);
+    
+    console.log(ans+" "+questionId+""+i);
+   
+    this.ansset[i]={
+    "submittedAns":ans,
+    "questionId":questionId,
+    "userId":this.y
+  }
+  for (let i = 0; i < this.ansset.length; i++) 
+{
+   console.log(this.ansset[i]);
+
+}
+
+    // this.answerSet[i].questionId=questionId;
+    // this.answerSet[i].ans=ans;
+    // console.log(this.answerSet);
     
   }
 
-  submitAnswer(myForm){
-    //debugger
-
-    console.log(myForm);
-    
-    let x = this.answerSet.toString;
-    console.log(x);
-    this.service.getMarks(this.answerSet,sessionStorage['uid']).subscribe(res =>{
-      //debugger
-      this.score=res.toString();
+  submitAnswer()
+  {
+    console.log("hey buddy");
+    console.log(this.ansset);
+console.log(this.y);
+    this.service.getMarks(this.ansset).subscribe(res =>{
+      this.score=res;
       console.log(this.score);
     });
   }
+
+  // setAnswer(ans,questionId,i){
+  //   console.log(ans+" "+questionId+" "+i);
+  //   this.answerSet[i].questionId=questionId;
+  //   this.answerSet[i].ans=ans;
+  //   console.log(this.answerSet);
+    
+  // }
+
+  // submitAnswer(myForm){
+  //   //debugger
+
+  //   console.log(myForm);
+
+  //   let data = myForm.form.value;
+  //   console.log(data);
+  //   this.y=parseInt(sessionStorage.getItem('uid'));
+
+
+  
+  //   this.service.getMarks(this.data,sessionStorage['uid']).subscribe(res =>{
+  //   debugger
+      
+  //     this.score=res.toString();
+  //     console.log(this.score);
+  //   });
+  // }
 
   
 

@@ -47,9 +47,22 @@ export class UserService {
     return this.http.get("http://localhost:8080/DacAug19old/admin/questionDetails?qid="+qid);
   }
 
-  getMarks(answerSet,userId)
+  // getMarks(answerSet,userId)
+  // {
+  //   console.log("inside service");
+  //   console.log(answerSet);
+  //   console.log(userId);
+  //   // http://localhost:8080/DacAug19old/user/exam/getMarks/3
+  //   return this.http.get("http://localhost:8080/DacAug19old/user/exam/getMarks?userId="+userId,answerSet)
+  // }
+
+  getMarks(answerSet)
   {
-    return this.http.get("http://localhost:8080/DacAug19old/user/exam/getMarks?userId="+userId,answerSet)
+    console.log("inside service");
+    console.log(answerSet);
+  
+    // http://localhost:8080/DacAug19old/user/exam/getMarks/3
+    return this.http.post("http://localhost:8080/DacAug19old/user/exam/getMarks",answerSet)
   }
 
 
