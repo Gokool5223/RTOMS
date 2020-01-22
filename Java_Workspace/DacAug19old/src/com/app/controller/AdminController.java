@@ -129,6 +129,7 @@ public class AdminController
 	@PostMapping("/updateRto")
 	public Integer updateRto(@RequestBody User u) {
 		System.out.println(u);
+		System.out.println("im controller of rtoupdate");
 		u.setPassword(u.getPassword());
 		irtoDao.updateRto(u);
 		return 1;

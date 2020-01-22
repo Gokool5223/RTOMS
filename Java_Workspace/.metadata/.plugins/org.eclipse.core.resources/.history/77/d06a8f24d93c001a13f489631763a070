@@ -1,0 +1,145 @@
+package com.app.controller;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailException;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.app.dao.IQuestionDao;
+import com.app.dao.IRtoDao;
+import com.app.dao.IUserDao;
+import com.app.dao.QuestionDaoImpl;
+import com.app.pojos.Question;
+import com.app.pojos.User;
+
+@CrossOrigin(allowedHeaders = "*")
+@RestController
+@RequestMapping("/admin")
+public class AdminController 
+{
+	@Autowired
+	IUserDao iuserDao;
+	@Autowired
+	IQuestionDao dao;
+	@Autowired
+	IRtoDao irtoDao;
+	@Autowired
+	private JavaMailSender mailSender;
+	
+	public AdminController() 
+	{
+		System.out.println("in ctor of " + getClass().getName());
+	}
+	
+	@PostMapping("/addQuestion")
+	public Integer addQuestion(@RequestBody Question question,HttpServletRequest request) {
+		System.out.println(question);
+		dao.addQuestion(question);
+		return 1;
+	}
+	
+	@GetMapping("/deleteQuestion/{qid}")
+	public Integer deleteQuestion(@PathVariable int qid)
+	{
+		System.out.println(qid);
+	 dao.deleteQuestion(qid);
+	 return 1;
+	}
+	
+	@PostMapping("/updateQuestion")
+	public Integer updateQuestion(@RequestBody Question question) {
+		System.out.println(question);
+		question.setAnswerKey(question.getAnswerKey());
+		dao.updateAnswer(question);
+		return 1;
+	}
+	
+	@GetMapping("/questionList")
+	public List<Question> getQuestionPaper() {
+		System.out.println("in Question paper");
+		return dao.getQuestion();
+	}
+	
+	@GetMapping("/rtoList")
+	public List<User> getRtoList() {
+		System.out.println("in Rto list");
+		return irtoDao.getAllRto();
+	}
+	
+	@GetMapping("/questionDetails")
+	public Question getQuestiondetails(int qid)
+	{
+		return dao.getQuestionDetails(qid);
+	}
+	@PostMapping("/registerRto")
+	public Integer registerRTO(@RequestBody User user,HttpServletRequest request) 
+	{
+		System.out.println(user);
+		String em = request.getParameter("email");
+		if(iuserDao.registerRTO(user)!=0)
+		{
+			String msg="You have registered successfully as RTO  with= "+user.getEmail()+"and password is="+user.getPassword();
+			SimpleMailMessage mailMessage = new SimpleMailMessage();
+			mailMessage.setTo(user.getEmail());
+			mailMessage.setSubject("Regestration Mail");
+			mailMessage.setText(msg);
+			try
+			{
+				mailSender.send(mailMessage);
+			}
+			catch (MailException e) 
+			{
+				System.out.println("inside mail exception");
+				e.printStackTrace();
+			}
+			return 1;
+		}
+		else
+		{
+			System.out.println("Something went wrong!!!");
+			return 0;
+		}
+		
+		
+	}
+	
+	@GetMapping("/deleteRto/{userId}")
+	public Integer deleteRto(@PathVariable int userId)
+	{
+		System.out.println(userId);
+	 irtoDao.deleteRto(userId);
+	 return 1;
+	}
+	
+	@PostMapping("/updateRto")
+	public Integer updateRto(@RequestBody User u) {
+		System.out.println(u);
+		u.setPassword(u.getPassword());
+		irtoDao.updateRto(u);
+		return 1;
+	}
+	
+	@GetMapping("/rtoDetails")
+	public User getRtodetails(int userId)
+	{
+		return irtoDao.getRtoDetails(userId);
+	}
+	
+	
+
+}

@@ -15,9 +15,10 @@ export class LoginComponent implements OnInit {
 
     login(loginForm)
     {
+      console.log(loginForm);
       let data = loginForm.form.value;
      this.userService.login(data).subscribe(res=>{
-       debugger
+      // debugger
       sessionStorage['email']=res['email'];
       sessionStorage['uid']=res['userId'];
       console.log(res.toString())

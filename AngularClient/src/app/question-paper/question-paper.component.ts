@@ -12,6 +12,8 @@ export class QuestionPaperComponent implements OnInit {
   data;
   questions:any=[];
   answerSet=[];
+  qid;
+  qans;
   score;
 
 
@@ -39,8 +41,11 @@ export class QuestionPaperComponent implements OnInit {
     
   }
 
-  submitAnswer(){
+  submitAnswer(myForm){
     //debugger
+
+    console.log(myForm);
+    
     let x = this.answerSet.toString;
     console.log(x);
     this.service.getMarks(this.answerSet,sessionStorage['uid']).subscribe(res =>{

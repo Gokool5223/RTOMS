@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../admin.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-update-rto',
@@ -7,11 +9,50 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateRtoComponent implements OnInit {
 
-  x;any;
+  x:any;
   User={}
+  aduserId: any;
+  aduserName: any;
+  ademail: any;
+  adpassword: any;
 
 
-  constructor(public service:) { }
+  constructor(public service:AdminService, public router:Router,public route:ActivatedRoute) { 
+    this.x=this.route.snapshot.paramMap.get("userId");
+    console.log(this.x);
+    this.service.getRtoDetails(this.x).subscribe((res)=>
+    {
+      console.log(res);
+      this.aduserId=res['userId'];
+      this.aduserName=res['userName'];
+      this.ademail=res['email'];
+      this.adpassword=res['password'];
+
+      
+    },(err)=>{
+      alert("Something went wrong..!!");
+    })
+
+
+  }
+
+  updateRto()
+  {
+    let rtos={
+      "userId":this.aduserId,
+      "userName":this.aduserName,
+      "email":this.ademail,
+      "password":this.adpassword
+    }
+    this.service.updateRto(rtos).subscribe((res)=>
+    {
+      if(res==1)
+      {
+        this.router.navigate(['manageRto'])
+      }
+    })
+  }
+
 
   ngOnInit() {
   }

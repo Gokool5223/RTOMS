@@ -2,24 +2,28 @@
 
 
  
- <form #myForm="ngForm" (ngSubmit)="addRto(myForm)" role="form" style="width: 40%; margin: auto">
- 
+
+  <div class="form-group">
+    User Id
+    <input type="text" name="userId" ngModel class="form-control" [(ngModel)]="aduserId" id="user" placeholder="" disabled>
+  </div>
+
     <div class="form-group">
         RTO Name 
-        <input type="text" name="userName" ngModel class="form-control" id="userName" placeholder="Enter RTO Name">
+        <input type="text" name="userName" ngModel class="form-control"[(ngModel)]="aduserName" placeholder="Enter RTO Name">
       </div>
     
       <div class="form-group">
        Email
-        <input type="email" name="email" ngModel class="form-control" id="email" placeholder="Enter Email ">
+        <input type="email" name="email" ngModel class="form-control" [(ngModel)]="ademail" placeholder="Enter Email ">
       </div>
       <div class="form-group">
           Password
-           <input type="password" name="password" ngModel class="form-control" id="password" placeholder="Enter Password">
+           <input type="password" name="password" ngModel class="form-control" [(ngModel)]="adpassword" placeholder="Enter Password">
          </div>
           
       
-      <button type="submit" class="btn btn-success">Add RTO</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button type="submit" (click)="updateRto()" class="btn btn-success">update RTO</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <button type="submit" class="btn btn-danger" (click)="cancel()">Cancel</button>
-    </form>
+    
     

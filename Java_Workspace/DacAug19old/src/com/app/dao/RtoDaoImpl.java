@@ -46,11 +46,11 @@ public class RtoDaoImpl implements IRtoDao
 	@Override
 	public String updateRto(User u) {
 		
-			
+			System.out.println("in updatedao");
 			User user=sf.getCurrentSession().get(User.class, u.getUserId());
 			user.setUserName(u.getUserName());
-			user.setUserName(u.getEmail());
-			user.setUserName(u.getPassword());
+			user.setEmail(u.getEmail());
+			user.setPassword(u.getPassword());
 			
 			return "Rto updated  ";
 		}

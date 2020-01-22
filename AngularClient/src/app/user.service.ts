@@ -49,7 +49,6 @@ export class UserService {
 
   getMarks(answerSet,userId)
   {
-    debugger
     return this.http.get("http://localhost:8080/DacAug19old/user/exam/getMarks?userId="+userId,answerSet)
   }
 
