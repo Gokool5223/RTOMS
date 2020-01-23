@@ -1,0 +1,174 @@
+package com.app.pojos;
+
+import java.util.Arrays;
+import java.util.Date;
+
+import javax.persistence.*;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity
+public class Application 
+{
+	 private Integer appId;
+	 private String address;
+	 private String aadharNo;
+	 private String qualification;
+	 private BloodGroup bloodGroup;
+	 private Gender gender;
+	 @JsonFormat(pattern="yyyy-MM-dd") 
+	 @DateTimeFormat(pattern = "yyyy-MM-dd")
+	 private Date dob;
+	  
+	 @JsonIgnore
+	 private byte[] document;
+	 
+	 @JsonFormat(pattern="yyyy-MM-dd") 
+	 @DateTimeFormat(pattern="yyyy-MM-dd")
+     private Date appDate;
+	 private Status status;
+	 private VehicleType vehicleType;
+	  
+	 
+	 //for one to one mapping
+	 private User user;
+	 
+	 public Application() {
+		System.out.println("Inside Application");
+	}
+
+	public Application(String address, String aadharNo, String qualification, BloodGroup bloodGroup, Gender gender,
+			Date dob, byte[] document, Date appDate, Status status, VehicleType vehicleType, User user) {
+		super();
+		this.address = address;
+		this.aadharNo = aadharNo;
+		this.qualification = qualification;
+		this.bloodGroup = bloodGroup;
+		this.gender = gender;
+		this.dob = dob;
+		this.document = document;
+		this.appDate = appDate;
+		this.status = status;
+		this.vehicleType = vehicleType;
+		this.user = user;
+	}
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public Integer getAppId() {
+		return appId;
+	}
+
+	public void setAppId(Integer appId) {
+		this.appId = appId;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getAadharNo() {
+		return aadharNo;
+	}
+
+	public void setAadharNo(String aadharNo) {
+		this.aadharNo = aadharNo;
+	}
+
+	public String getQualification() {
+		return qualification;
+	}
+
+	public void setQualification(String qualification) {
+		this.qualification = qualification;
+	}
+
+	@Enumerated(EnumType.STRING)
+	public BloodGroup getBloodGroup() {
+		return bloodGroup;
+	}
+
+	public void setBloodGroup(BloodGroup bloodGroup) {
+		this.bloodGroup = bloodGroup;
+	}
+
+	@Enumerated(EnumType.STRING)
+	public Gender getGender() {
+		return gender;
+	}
+
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
+
+	@Temporal(TemporalType.DATE)
+	public Date getDob() {
+		return dob;
+	}
+
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
+
+	@Lob
+	public byte[] getDocument() {
+		return document;
+	}
+
+	public void setDocument(byte[] document) {
+		this.document = document;
+	}
+
+	@Temporal(TemporalType.DATE)
+	public Date getAppDate() {
+		return appDate;
+	}
+
+	public void setAppDate(Date appDate) {
+		this.appDate = appDate;
+	}
+
+	@Enumerated(EnumType.STRING)
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+	@Enumerated(EnumType.STRING)
+	public VehicleType getVehicleType() {
+		return vehicleType;
+	}
+
+	public void setVehicleType(VehicleType vehicleType) {
+		this.vehicleType = vehicleType;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	@Override
+	public String toString() {
+		return "Application [appId=" + appId + ", address=" + address + ", aadharNo=" + aadharNo + ", qualification="
+				+ qualification + ", bloodGroup=" + bloodGroup + ", gender=" + gender + ", dob=" + dob + ", document="
+				+ Arrays.toString(document) + ", appDate=" + appDate + ", status=" + status + ", vehicleType="
+				+ vehicleType + ", user=" + user + "]";
+	}
+	 
+	
+
+}

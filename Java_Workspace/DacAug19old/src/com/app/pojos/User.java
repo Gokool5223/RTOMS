@@ -15,7 +15,11 @@ public class User
 	 private String userName;
 	 private String password;
 	 private Role role;
-	 private List<Question> question;	 	
+	 //private List<Question> question;
+	 @JsonIgnore
+	 private Application application;
+	 
+	 
 	 
 
 
@@ -31,20 +35,30 @@ public class User
  
  
 
-
-	public User(Integer userId, String email, String userName, String password) {
-		super();
-		this.userId = userId;
-		this.email = email;
-		this.userName = userName;
-		this.password = password;
-	}
-	 
 	 
 
 
 	
-	 @Id
+	 public User(String email, String userName, String password, Role role, Application application,
+			TestResult testResult, List<Response> responses) {
+		super();
+		this.email = email;
+		this.userName = userName;
+		this.password = password;
+		this.role = role;
+		this.application = application;
+		this.testResult = testResult;
+		this.responses = responses;
+	}
+
+
+
+
+
+
+
+
+	@Id
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
 	 public Integer getUserId() {
 		return userId;
@@ -144,6 +158,17 @@ public class User
 			this.answer = answer;
 		}
 		*/
+	
+	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL,orphanRemoval = true)
+	public Application getApplication() {
+		return application;
+	}
+
+
+
+	public void setApplication(Application application) {
+		this.application = application;
+	}
 
 
 
@@ -152,8 +177,19 @@ public class User
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", email=" + email + ", userName=" + userName + ", password=" + password
-				+ ", role=" + role + "]";
+				+ ", role=" + role + ", application=" + application + ", testResult=" + testResult + ", responses="
+				+ responses + "]";
 	}
+
+
+
+
+
+	
+
+
+
+
 
 
 
