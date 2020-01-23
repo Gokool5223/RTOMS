@@ -23,14 +23,21 @@ public interface IUserDao
 	List<Response> getAllAnswer();
 	public Integer registerRTO(User user);
 	
-	
-	public List<User> getAllUsersList();
+	//get all applicants
+	List<User> getAllApplicant();
 	public User getUserDetails(int userId);
 	
+	//Update User
+	
+	String updateUserApplication(Application application);
 	
 	//Application Details
 	
 	public Integer insertApplicationDetails(Application application);
+	//public Application getApplicantDetails(int user_id);
+	public User getApplicationDetails(int user_id);
+	
+	
 	
 	
 //	Question getQuestions(int qid);

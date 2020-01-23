@@ -1,0 +1,71 @@
+
+<h1 style="text-align: center;">Update Application Form</h1>
+
+<br>
+<br>
+
+  
+<form  role="form" style="width: 40% ; margin: auto;">
+
+  <div class="form-group">
+     Address
+    <input type="text" name="address" ngModel class="form-control" [(ngModel)]="address" id="address" placeholder="Enter your address">
+  </div>
+
+  <div class="form-group">
+   Aadhar Number
+    <input type="text" name="aadharNo" ngModel class="form-control" [(ngModel)]="aadharNo" id="aadharNo" placeholder="Enter your Aadhar Number">
+  </div>
+  
+  <div class="form-group">
+    Gender
+    <input type="radio" ngModel class="form-control" [(ngModel)]="gender"  name="gender" value="MALE" checked>MALE<br>
+    <input type="radio" ngModel class="form-control" [(ngModel)]="gender"  name="gender" value="FEMALE" >FEMALE<br>
+    <input type="radio" ngModel class="form-control" [(ngModel)]="gender" name="gender" value="OTHER" >OTHER
+
+  </div>
+  
+  <div class="form-group">
+        Date of Birth
+       <input type="date" name="dob" ngModel class="form-control" [(ngModel)]="dob"  id="dob" >
+  </div>
+
+  <div class="form-group">
+      Blood Group
+    <select name="ToSelect" ngModel="data.ToSelect" class="form-control" [(ngModel)]="bloodGroup" >
+      <option  name="bloodGroup" value="O">O</option>
+      <option  name="bloodGroup" value="A">A</option>
+      <option  name="bloodGroup" value="B">B</option>
+      <option  name="bloodGroup" value="AB">AB</option>
+    </select>
+    </div>
+
+  <div class="form-group">
+    Qualification
+    <input type="text" name="qualification" ngModel class="form-control" [(ngModel)]="qalification"  id="qualification" placeholder="Enter your Qualification">
+  </div>
+
+  <div class="form-group">
+    Document details
+    <input  type="file" id="document" ngModel class="form-control" [(ngModel)]="document"  name="document">
+  </div>
+
+  <div class="form-group">
+    Date of Application
+    <input type="date" name="appDate" ngModel class="form-control" [(ngModel)]="appDate"  id="appDate"  >
+  </div>
+  
+  <div class="form-group">
+    Vehicle Type
+    <br>
+    <input type="checkbox" ngModel class="form-control"  [(ngModel)]="vehicleType"  name="vehicleType" value="TWOWHEELER"> TWOWHEELER
+    <input type="checkbox" ngModel class="form-control" [(ngModel)]="vehicleType" name="vehicleType" value="FOURWHEELER"> FOURWHEELER<br>
+  </div>
+
+  <button type="submit" class="btn btn-success" (click)="update()">SUBMIT</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button type="submit" class="btn btn-danger" (click)="cancel()">Cancel</button>
+  
+</form>
+
+
+

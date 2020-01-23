@@ -1,0 +1,32 @@
+package com.app.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.app.dao.IUserDao;
+import com.app.pojos.User;
+
+@CrossOrigin(allowedHeaders = "*")
+@RestController
+@RequestMapping("/rto")
+public class RtoController 
+{
+	@Autowired
+	IUserDao iuserDao;
+	
+	public RtoController() {
+	System.out.println("in ctor of " + getClass().getName());
+	}
+	
+	@GetMapping("/userList")
+	public List<User> getRtoList() {
+		System.out.println("in Rto list");
+		return iuserDao.getAllApplicant();	}
+	
+
+}

@@ -12,5 +12,9 @@ public interface IRtoDao {
 	String deleteRto(int userId);
 	String updateRto(User u);
 	User getRtoDetails(int userId);
+	
+	
+	
+	
 
 }

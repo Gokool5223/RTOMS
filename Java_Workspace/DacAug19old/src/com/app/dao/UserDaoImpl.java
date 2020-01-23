@@ -26,7 +26,7 @@ public class UserDaoImpl implements IUserDao
 	@Override
 	public Integer registerUser(User user) {
 		
-		user.setRole(Role.RTO);
+		user.setRole(Role.USER);
 		return (Integer) sf.getCurrentSession().save(user);
 	}
 	
@@ -131,11 +131,11 @@ System.out.println(u.getRole());
 
 
 
-	@Override
-	public List<User> getAllUsersList() {
-		String jpql = "select u from User u left outer join fetch u.application where u.role='USER'";
-		return sf.getCurrentSession().createQuery(jpql, User.class).getResultList();
-	}
+//	@Override
+//	public List<User> getAllUsersList() {
+//		String jpql = "select u from User u left outer join fetch u.application where u.role='USER'";
+//		return sf.getCurrentSession().createQuery(jpql, User.class).getResultList();
+//	}
 
 
 
@@ -153,6 +153,73 @@ System.out.println(u.getRole());
 		
 		return (Integer) sf.getCurrentSession().save(application);
 	}
+
+
+//get User details to RTO 
+
+	@Override
+	public List<User> getAllApplicant() {
+		String jpql = "select u from User u where u.role='USER' ";
+		return sf.getCurrentSession().createQuery(jpql, User.class).getResultList();
+	}
+
+
+
+
+//	@Override
+//	public Application getApplicantDetails(int user_id) {
+//		return sf.getCurrentSession().get(Application.class, user_id);
+//	}
+
+
+
+
+	@Override
+	public User getApplicationDetails(int user_id) {
+		return sf.getCurrentSession().get(User.class, user_id);
+	}
+
+
+
+
+	@Override
+	public String updateUserApplication(Application application) {
+	System.out.println("in update user Application");
+	Application appl=sf.getCurrentSession().get(Application.class,application.getAppId());
+	appl.setAddress(application.getAddress());
+	appl.setAadharNo(application.getAadharNo());
+	appl.setQualification(application.getQualification());
+	appl.setBloodGroup(application.getBloodGroup());
+	appl.setGender(application.getGender());
+	appl.setDob(application.getDob());
+	appl.setAppDate(application.getAppDate());
+	appl.setDocument(application.getDocument());
+	appl.setAppDate(application.getAppDate());
+	appl.setStatus(application.getStatus());
+	appl.setVehicleType(application.getVehicleType());
+	
+	return "User Application Updated";
+	}
+
+
+
+
+	
+
+
+
+
+
+
+//
+//	@Override
+//	public List<User> getAllUsersList(Application application) {
+//		String jpql="select u from User u";
+//		List<User> l= sf.getCurrentSession().createQuery(jpql,User.class).getResultList();
+//	              
+//		
+//		return l;
+//	}
 
 
 	

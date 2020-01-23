@@ -1,0 +1,42 @@
+package com.app.dao;
+
+import java.util.List;
+
+import com.app.pojos.Application;
+import com.app.pojos.Otp;
+import com.app.pojos.Question;
+import com.app.pojos.Response;
+import com.app.pojos.User;
+
+public interface IUserDao 
+{
+	public Integer registerUser(User user);
+	public User login(User user);
+	public User findByEmail(User user);
+	public int generateOtp();
+	public void saveOtp(Otp otp);
+	public Otp getOtp();
+	public void deleteOtp();
+	public void resetPassword(User user);
+	public List<User> getAllUsers();
+	List<Question> getAllQuestion();
+	List<Response> getAllAnswer();
+	public Integer registerRTO(User user);
+	
+	//get all applicants
+	List<User> getAllApplicant();
+	public User getUserDetails(int userId);
+	
+	
+	//Application Details
+	
+	public Integer insertApplicationDetails(Application application);
+	
+	
+	
+	
+//	Question getQuestions(int qid);
+	
+	
+
+}

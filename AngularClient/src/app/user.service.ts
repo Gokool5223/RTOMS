@@ -15,6 +15,18 @@ export class UserService {
 
   }
 
+  addapplication(app){
+    return this.http.post("http://localhost:8080/DacAug19old/user/addApplication",app);
+
+  }
+  getApplication(appId){
+    return this.http.get("http://localhost:8080/DacAug19old/rto/getApplicationDetails?appId="+appId);
+  }
+
+  updateApplication(app){
+    return this.http.get("http://localhost:8080/DacAug19old/user/updateUserApplication",app);
+  }
+
   login(user)
   {
     return this.http.post("http://localhost:8080/DacAug19old/user/login",user);

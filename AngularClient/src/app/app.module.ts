@@ -27,6 +27,8 @@ import { UpdateQuestionComponent } from './update-question/update-question.compo
 import { AddRtoComponent } from './add-rto/add-rto.component';
 import { UpdateRtoComponent } from './update-rto/update-rto.component';
 import { ManageRtoComponent } from './manage-rto/manage-rto.component';
+import { ApplicationFormComponent } from './application-form/application-form.component';
+import { UpdateApplicationformComponent } from './update-applicationform/update-applicationform.component';
 
 
 
@@ -54,6 +56,8 @@ import { ManageRtoComponent } from './manage-rto/manage-rto.component';
     AddRtoComponent,
     UpdateRtoComponent,
     ManageRtoComponent,
+    ApplicationFormComponent,
+    UpdateApplicationformComponent,
     
    
     
@@ -82,7 +86,9 @@ import { ManageRtoComponent } from './manage-rto/manage-rto.component';
       {path:"updateQuestion",component:UpdateQuestionComponent},
       {path:"addRto",component:AddRtoComponent},
       {path:"updateRto",component:UpdateRtoComponent},
-      {path:"manageRto",component:ManageRtoComponent}
+      {path:"manageRto",component:ManageRtoComponent},
+      {path:"fillApplicationForm",component:ApplicationFormComponent},
+      {path:"updateApplicationForm",component:UpdateApplicationformComponent},
 
 
 

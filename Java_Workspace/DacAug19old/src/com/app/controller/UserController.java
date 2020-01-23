@@ -163,12 +163,14 @@ public class UserController
 		return dao.getMarks(responseList);
 	}
 	
-	@GetMapping("/getUserList")
-	public List<User> getUserList()
-	{
-		System.out.println("In User List");
-		return iuserDao.getAllUsersList();
-	}
+//	@GetMapping("/getUserList")
+//	public List<User> getUserList()
+//	{
+//		System.out.println("In User List");
+//		return iuserDao.getAllUsersList(application);
+//	}
+	
+	
 	
 	@GetMapping("/getUser/{userId}")
 	public User getUserById(@PathVariable int userId)	
@@ -185,6 +187,13 @@ public class UserController
 		System.out.println(application);
 		iuserDao.insertApplicationDetails(application);
 		
+		return 1;
+	}
+	
+	@PostMapping("/updateUserApplication")
+	public Integer updateQuestion(@RequestBody Application a) {
+		System.out.println(a);
+		iuserDao.updateUserApplication(a);
 		return 1;
 	}
 	

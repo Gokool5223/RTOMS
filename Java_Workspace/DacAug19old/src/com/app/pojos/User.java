@@ -16,7 +16,7 @@ public class User
 	 private String password;
 	 private Role role;
 	 //private List<Question> question;
-	 @JsonIgnore
+	 //@JsonIgnore
 	 private Application application;
 	 
 	 
@@ -159,7 +159,7 @@ public class User
 		}
 		*/
 	
-	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL,orphanRemoval = true)
+	@OneToOne(mappedBy = "user",cascade = CascadeType.ALL,orphanRemoval =true)
 	public Application getApplication() {
 		return application;
 	}
