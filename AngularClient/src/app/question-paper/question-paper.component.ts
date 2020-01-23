@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class QuestionPaperComponent implements OnInit {
 
+  
+
   data;
   questions:any=[];
   answerSet=[];

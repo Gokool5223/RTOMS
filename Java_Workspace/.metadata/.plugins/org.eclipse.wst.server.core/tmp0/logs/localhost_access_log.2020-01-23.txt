@@ -1,0 +1,17 @@
+127.0.0.1 - - [23/Jan/2020:09:50:55 +0530] "GET / HTTP/1.1" 404 1074
+127.0.0.1 - - [23/Jan/2020:09:50:55 +0530] "GET /DacAug19old/ HTTP/1.1" 200 145
+0:0:0:0:0:0:0:1 - - [23/Jan/2020:09:54:02 +0530] "OPTIONS /DacAug19old/user/login HTTP/1.1" 200 -
+0:0:0:0:0:0:0:1 - - [23/Jan/2020:09:54:03 +0530] "POST /DacAug19old/user/login HTTP/1.1" 200 115
+0:0:0:0:0:0:0:1 - - [23/Jan/2020:09:54:07 +0530] "GET /DacAug19old/user/exam HTTP/1.1" 200 380
+0:0:0:0:0:0:0:1 - - [23/Jan/2020:09:54:12 +0530] "OPTIONS /DacAug19old/user/exam/getMarks HTTP/1.1" 200 -
+0:0:0:0:0:0:0:1 - - [23/Jan/2020:09:54:12 +0530] "POST /DacAug19old/user/exam/getMarks HTTP/1.1" 200 11
+0:0:0:0:0:0:0:1 - - [23/Jan/2020:09:54:14 +0530] "POST /DacAug19old/user/exam/getMarks HTTP/1.1" 200 11
+127.0.0.1 - - [23/Jan/2020:10:06:50 +0530] "GET / HTTP/1.1" 404 1074
+127.0.0.1 - - [23/Jan/2020:10:06:51 +0530] "GET /DacAug19old/ HTTP/1.1" 200 145
+0:0:0:0:0:0:0:1 - - [23/Jan/2020:10:07:03 +0530] "OPTIONS /DacAug19old/user/exam/getMarks HTTP/1.1" 200 -
+0:0:0:0:0:0:0:1 - - [23/Jan/2020:10:07:03 +0530] "POST /DacAug19old/user/exam/getMarks HTTP/1.1" 200 11
+127.0.0.1 - - [23/Jan/2020:10:15:34 +0530] "GET / HTTP/1.1" 404 1074
+127.0.0.1 - - [23/Jan/2020:10:15:34 +0530] "GET /DacAug19old/ HTTP/1.1" 200 145
+0:0:0:0:0:0:0:1 - - [23/Jan/2020:10:15:58 +0530] "POST /DacAug19old/user/exam/getMarks HTTP/1.1" 200 11
+0:0:0:0:0:0:0:1 - - [23/Jan/2020:10:17:40 +0530] "OPTIONS /DacAug19old/user/exam/getMarks HTTP/1.1" 200 -
+0:0:0:0:0:0:0:1 - - [23/Jan/2020:10:17:40 +0530] "POST /DacAug19old/user/exam/getMarks HTTP/1.1" 200 11

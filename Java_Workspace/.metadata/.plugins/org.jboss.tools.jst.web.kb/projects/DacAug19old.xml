@@ -155,6 +155,8 @@
   <path value="/home/sunbeam/apache-tomcat-8.5.29/lib/el-api.jar"/>
  </paths>
  <validation>
+  <core validator-id="jsf-verification"/>
+  <core validator-id="jboss.cdi.core"/>
   <el>
    <linked-el length="23" name="%0" offset="968" path="%1"/>
    <linked-el length="22" name="%2" offset="935" path="%1"/>

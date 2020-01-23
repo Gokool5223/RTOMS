@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.app.pojos.Question;
 //import com.app.pojos.User;
 import com.app.pojos.Response;
+import com.app.pojos.TestResult;
 import com.app.pojos.User;
 
 @Service
@@ -68,10 +69,13 @@ public class QuestionDaoImpl implements IQuestionDao{
 	public Integer getMarks(List<Response> list) {
 		Integer marks=0;
 		Session hs = sf.getCurrentSession();
+		User u=null;
 		for(Response response:list)
 		{
 			Question q=new Question();
-			User u=new User();//id=0
+			 u=new User();//id=0
+			
+			
 			u.setUserId(response.getUserId());
 			
 			q=hs.get(Question.class,response.getQuestionId());
@@ -84,9 +88,16 @@ public class QuestionDaoImpl implements IQuestionDao{
 				marks++;
 			}
 			
-		}
 			
+		}
+		TestResult t=new TestResult();
 		
+		t.setScore(marks);
+		t.setUsert(u);
+		sf.getCurrentSession().persist(t);
+		
+		
+			
 		
 		return marks;
 	}
