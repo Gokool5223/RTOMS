@@ -1,5 +1,13 @@
 <h1>Question Paper</h1>
+<script>
+  function examTime(){
+  timeout=window.setTimeout(showScore,60000)
+  }
+  function showScore(){
+    alert('Your score is')
+  }
 
+</script>
 <p>
   test works!
 </p>
@@ -30,6 +38,7 @@
   <div>
    <h4> Your Score is: {{score}}</h4>
   </div>
+  
  
 </div>
 
@@ -46,7 +55,7 @@
       <br>
 
   <div class="form-group">
-    <label><input type="radio" value="1" name="optradio{{i}}" (click)="setAnswer(1,question.id,i)" ngModel class="form-control"  >{{question.option1}}</label>
+    <label><input type="radio" value="1" name="optradio{{i}}" (click)="setAnswer(1  ,question.id,i)" ngModel class="form-control"  >{{question.option1}}</label>
   </div>
   <br>
   <div class="form-group">

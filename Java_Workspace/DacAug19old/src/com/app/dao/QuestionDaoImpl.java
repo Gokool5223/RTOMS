@@ -26,9 +26,25 @@ public class QuestionDaoImpl implements IQuestionDao{
 	@Override
 	public List<Question> getQuestion() 
 	{
+		/*TestResult tr=new TestResult();
+		
+		String jpql1="select t from TestResult t";
+		sf.getCurrentSession().createQuery(jpql1,TestResult.class).getResultList();
+		User u=new User();
+		String jpql2="select u from User u";
+		sf.getCurrentSession().createQuery(jpql2,User.class).getResultList();
+		
+		if(tr.getResultId()==u.getTestResult().getResultId())
+		{
+			return null;
+			
+		}
+		else
+		*/	
+		{
 		String jpql = "select q from Question q ";
 		return sf.getCurrentSession().createQuery(jpql, Question.class).getResultList();
-	
+		}
 
 	}
 		

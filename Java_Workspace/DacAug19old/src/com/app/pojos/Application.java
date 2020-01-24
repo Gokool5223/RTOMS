@@ -120,6 +120,7 @@ public class Application
 	}
 
 	@Lob
+	@Column(length=16777215)
 	public byte[] getDocument() {
 		return document;
 	}
@@ -170,8 +171,10 @@ public class Application
 		return "Application [appId=" + appId + ", address=" + address + ", aadharNo=" + aadharNo + ", qualification="
 				+ qualification + ", bloodGroup=" + bloodGroup + ", gender=" + gender + ", dob=" + dob + ", document="
 				+ Arrays.toString(document) + ", appDate=" + appDate + ", status=" + status + ", vehicleType="
-				+ vehicleType + ", user=" + user + "]";
+				+ vehicleType + "]";
 	}
+
+	
 	 
 	
 

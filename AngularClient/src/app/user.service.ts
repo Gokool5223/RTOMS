@@ -74,7 +74,16 @@ export class UserService {
     console.log(answerSet);
   
     // http://localhost:8080/DacAug19old/user/exam/getMarks/3
-    return this.http.post("http://localhost:8080/DacAug19old/user/exam/getMarks",answerSet)
+    return this.http.post("http://localhost:8080/DacAug19old/user/exam/getMarks",answerSet);
+  }
+
+  getUser(uid)
+  {
+    console.log("inside User sevice");
+    console.log(uid);
+    return this.http.get("http://localhost:8080/DacAug19old/user/getUser?userId="+uid);
+
+
   }
 
 

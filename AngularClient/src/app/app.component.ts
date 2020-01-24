@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { EmtrService } from './emtr.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ export class AppComponent {
   title = 'RTO Mangement System';
   isLogin:false;
 
-  constructor(private emservice:EmtrService){
+  constructor(private emservice:EmtrService, public router:Router){
 
   }
 
@@ -23,7 +24,10 @@ export class AppComponent {
   }
 
   logout(){
-    alert("In logout");
+    this.router.navigate(['login']);
+
+    alert("You Logout Successfully");
+   
     this.isLogin=false;
     delete sessionStorage['email'];
   }

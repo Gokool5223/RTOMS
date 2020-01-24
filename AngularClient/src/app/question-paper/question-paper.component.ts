@@ -66,6 +66,8 @@ console.log(this.y);
     this.service.getMarks(this.ansset).subscribe(res =>{
       this.score=res;
       console.log(this.score);
+      alert("Your Score is "+this.score);
+      this.router.navigate(['user-Home']);
     });
   }
 

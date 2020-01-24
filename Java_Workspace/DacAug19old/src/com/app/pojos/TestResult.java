@@ -1,6 +1,6 @@
 package com.app.pojos;
 
-import javax.persistence.Column;
+import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,14 +12,24 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name="test_result")
 public class TestResult {
 	private Integer resultId;
 	private Integer score;
 	private User usert;
 	
+	public TestResult() {
+		System.out.println("In Test Result");
+	}
 	
 	
+	public TestResult(Integer resultId, Integer score, User usert) {
+		super();
+		this.resultId = resultId;
+		this.score = score;
+		this.usert = usert;
+	}
+
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="resultId")
@@ -37,6 +47,7 @@ public class TestResult {
 	public void setScore(Integer score) {
 		this.score = score;
 	}
+	
 	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name="user_id")
