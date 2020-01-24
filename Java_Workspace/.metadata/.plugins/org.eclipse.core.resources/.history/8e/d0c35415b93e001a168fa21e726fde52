@@ -176,7 +176,7 @@ System.out.println(u.getRole());
 
 
 	@Override
-	public User getApplicationDetails(int user_id) {
+	public User getApplicationDetails(Integer user_id) {
 		return sf.getCurrentSession().get(User.class, user_id);
 	}
 

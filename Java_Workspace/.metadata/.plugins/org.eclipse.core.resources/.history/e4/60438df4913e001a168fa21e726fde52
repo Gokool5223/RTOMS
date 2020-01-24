@@ -44,9 +44,8 @@ public interface IUserDao
 //	Question getQuestions(int qid);
 	
 	// to upload document
+	public Integer uploadDocument(Integer id,Document_List doc);
 	
-	
-	public Integer uploadDocument(Document_List doc);
 	
 
 }

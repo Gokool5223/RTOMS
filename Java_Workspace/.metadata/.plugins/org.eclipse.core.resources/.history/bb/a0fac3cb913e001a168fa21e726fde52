@@ -206,15 +206,12 @@ System.out.println(u.getRole());
 
 
 	@Override
-	public Integer uploadDocument(Document_List doc) {
-		// TODO Auto-generated method stub
-		return (Integer) sf.getCurrentSession().save(doc);
+	public Integer uploadDocument(Integer id, Document_List doc) {
+		User user=sf.getCurrentSession().get(User.class, Id);
+		user.addDoc(doc);
 		
+		return 1;
 	}
-
-
-
-
 
 
 

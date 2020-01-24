@@ -208,8 +208,7 @@ System.out.println(u.getRole());
 	@Override
 	public Integer uploadDocument(Document_List doc) {
 		// TODO Auto-generated method stub
-		return (Integer) sf.getCurrentSession().save(doc);
-		
+		sf.getCurrentSession().save(doc);
 	}
 
 

@@ -24,7 +24,7 @@ export class UserService {
   }
 
   updateApplication(app){
-    return this.http.get("http://localhost:8080/DacAug19old/user/updateUserApplication",app);
+    return this.http.post("http://localhost:8080/DacAug19old/user/updateUserApplication",app);
   }
 
   login(user)
@@ -81,7 +81,7 @@ export class UserService {
   {
     console.log("inside User sevice");
     console.log(uid);
-    return this.http.get("http://localhost:8080/DacAug19old/user/getUser?userId="+uid);
+    return this.http.get("http://localhost:8080/DacAug19old/user/getUser/"+uid);
 
 
   }

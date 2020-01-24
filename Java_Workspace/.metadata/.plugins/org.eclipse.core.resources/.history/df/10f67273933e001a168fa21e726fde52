@@ -46,7 +46,6 @@ public interface IUserDao
 	// to upload document
 	
 	
-	public Integer uploadDocument(Document_List doc);
 	
 
 }

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.app.pojos.Application;
-import com.app.pojos.Document_List;
 import com.app.pojos.Otp;
 import com.app.pojos.Question;
 import com.app.pojos.Response;
@@ -201,20 +200,6 @@ System.out.println(u.getRole());
 	
 	return "User Application Updated";
 	}
-
-
-
-
-	@Override
-	public Integer uploadDocument(Document_List doc) {
-		// TODO Auto-generated method stub
-		return (Integer) sf.getCurrentSession().save(doc);
-		
-	}
-
-
-
-
 
 
 

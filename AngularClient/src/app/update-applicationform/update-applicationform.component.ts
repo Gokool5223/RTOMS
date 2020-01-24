@@ -20,19 +20,28 @@ export class UpdateApplicationformComponent implements OnInit {
   Qualification: any;
   Document: any;
   VehicleType: any;
+  Gender: any;
+  result: any;
+  data: any;
+  AppId: any;
 
-  constructor(public service:UserService,router:Router,public route:ActivatedRoute) { 
-   // this.x=this.route.snapshot.paramMap.get("userId");
+  constructor(public service:UserService,public router:Router) { 
+   // this.x=this.reout.snapshot.paramMap.get("userId");
     this.y=parseInt(sessionStorage.getItem('uid'));
     this.service.getUser(this.y).subscribe((res)=>
     {
       console.log(res);
       this.app=res['application'];
+      this.AppId=this.app["appId"];
+      console.log(this.AppId);
       this.Address=this.app['address'];
       this.AadharNo=this.app['aadharNo'];
       this.AppDate=this.app['appDate'];
+      this.Gender=this.app['gender'];
+      console.log(this.Gender);
       this.BloodGroup=this.app['bloodGroup'];
       this.DOB=this.app['dob'];
+      console.log(this.DOB);
       this.Document=this.app['document'];
       this.Qualification=this.app['qualification'];
       this.VehicleType=this.app['vehicleType'];
@@ -41,6 +50,36 @@ export class UpdateApplicationformComponent implements OnInit {
   
     })
 
+    
+  }
+
+  update()
+  {
+    console.log(this.result);
+    console.log(this.data);
+
+    let appl={
+      "appId":this.AppId,
+      "address":this.Address,
+      "aadharNo":this.AadharNo,
+      "appDate":this.AppDate,
+      "gender":this.Gender,
+      "bloodGroup":this.BloodGroup,
+      "dob":this.DOB,
+      "document":this.Document,
+      "qualification":this.Qualification,
+      "vehicleType":this.VehicleType
+      
+    }
+
+    this.service.updateApplication(appl).subscribe((res)=>
+    {
+      if(res==1)
+      {
+        this.router.navigate(['user-Home'])
+      }
+
+    })
     
   }
 

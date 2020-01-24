@@ -179,7 +179,7 @@ public class UserController
 	
 	
 	
-	@GetMapping("/getUser/{userId}")
+	@GetMapping("/getUser")
 	public User getUserById(@PathVariable int userId)	
 	{
 		System.out.println("In getUser details by id");

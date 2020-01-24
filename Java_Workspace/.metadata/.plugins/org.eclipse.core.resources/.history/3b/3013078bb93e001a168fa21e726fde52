@@ -180,7 +180,7 @@ public class UserController
 	
 	
 	@GetMapping("/getUser/{userId}")
-	public User getUserById(@PathVariable int userId)	
+	public User getUserById(@RequestParam int userId)	
 	{
 		System.out.println("In getUser details by id");
 		return iuserDao.getUserDetails(userId);

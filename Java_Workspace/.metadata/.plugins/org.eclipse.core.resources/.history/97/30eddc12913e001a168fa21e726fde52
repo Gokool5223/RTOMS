@@ -3,7 +3,6 @@ package com.app.dao;
 import java.util.List;
 
 import com.app.pojos.Application;
-import com.app.pojos.Document_List;
 import com.app.pojos.Otp;
 import com.app.pojos.Question;
 import com.app.pojos.Response;
@@ -43,10 +42,6 @@ public interface IUserDao
 	
 //	Question getQuestions(int qid);
 	
-	// to upload document
-	
-	
-	public Integer uploadDocument(Document_List doc);
 	
 
 }

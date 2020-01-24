@@ -15,6 +15,10 @@ export class ManageRtoComponent implements OnInit {
   constructor(private adminService:AdminService, private router:Router) 
 
   { 
+    if(sessionStorage['uid']==null)
+    {
+      this.router.navigate(['login']);
+    }
     this.getdata();
 }
 getdata()
