@@ -86,6 +86,23 @@ export class UserService {
 
   }
 
+  scheduleTest(app,y)
+  {
+    console.log("inside User sevice");
+    console.log(y);
+    console.log(app);
+    return this.http.post("http://localhost:8080/DacAug19old/user/scheduleTest?id="+y,app);
+
+  }
+  upload(data)
+  {
+    console.log("inside User sevice");
+    return this.http.post("http://localhost:8080/DacAug19old/user/upload",data);
+
+  }
+
+
+
 
 
 }

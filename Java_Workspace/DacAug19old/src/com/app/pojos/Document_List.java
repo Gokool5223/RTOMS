@@ -1,6 +1,8 @@
 package com.app.pojos;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 public class Document_List {
@@ -8,6 +10,7 @@ public class Document_List {
 	private Integer docId;
 	private String Doc_Name;
 	private String filepath;
+	@JsonIgnore
 	private User user;
 	
 	

@@ -1,0 +1,17 @@
+<form #myForm="ngForm" (ngSubmit)="scheduleTest(myForm.value)" class="form-inline" role="form">
+
+  <div class="form-group">
+    <label  for="Date">Exam Date</label><br>
+    <input type="datetime-local" class="form-control" id="" ngModel name="testDate" placeholder="Input field">
+  </div><br>
+<!-- 
+  <div class="form-group">
+    <label  for="Time">Time</label><br>
+    <input type="time" class="form-control" id=""   ngModel name="appTime"  placeholder="Input field">
+  </div><br> -->
+
+  <br>  
+  <button type="submit" class="btn btn-primary">Confirm</button>
+  </form>
+
+<!-- <span>{{msg}}</span> -->

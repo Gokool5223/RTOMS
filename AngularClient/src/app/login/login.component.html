@@ -9,15 +9,33 @@
 
  <form #loginForm="ngForm" (ngSubmit)="login(loginForm)" role="form" style="width: 40% ; margin: auto; background-image: url('assets/images/traffis-police.jpg');">
 
+  
   <div class="form-group">
-    Email
-     <input type="email" name="email" ngModel class="form-control" id="email" placeholder="Enter your Email">
-   </div>
+    <label for="EmailId">Email</label>
+    <input ngModel type="text" class="form-control" id="EmailId" required email name="email" #EmailId="ngModel" #spy>
+    <div *ngIf="EmailId.invalid && (EmailId.dirty || EmailId.touched || EmailId.pristine)" class="alert alert-danger">
+      <div *ngIf="EmailId.errors.required">
+          Email id is required.
+      </div>
+      <div *ngIf="EmailId.errors.email">
+          Email Id must be valid.
+      </div>
+  </div>   
+  </div>
+
    
-   <div class="form-group">
-    Password
-     <input type="password" name="password" ngModel class="form-control" id="password" placeholder="Enter your Password">
-   </div>
+  <div class="form-group">
+    <label for="Password">Password</label>
+    <input ngModel type="password" class="form-control" id="Password" required minlength="3" maxlength="10" name="password" #Password="ngModel" #spy>
+    <div *ngIf="Password.invalid && (Password.dirty || Password.touched || Password.pristine)" class="alert alert-danger">
+      <div *ngIf="Password.errors.required">
+          Password is required.
+      </div>
+      <div *ngIf="Password.errors.minlength">
+          Password must be at least 3 characters long.
+      </div>
+  </div>   
+</div>
 
 
 
@@ -31,6 +49,7 @@
     <br>
     <div style="text-align: center;">
       <a routerLink="/forgot" style="text-underline-position: below;">Forgot Password?</a>
+      
     </div>
 </form>
 

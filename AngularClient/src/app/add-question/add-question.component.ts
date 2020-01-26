@@ -13,6 +13,19 @@ export class AddQuestionComponent implements OnInit {
   constructor(public router:Router,public adminService:AdminService) { }
 
   ngOnInit() {
+    var id=sessionStorage.getItem('uid');
+    var f=sessionStorage['userFlag'];
+
+    console.log(id);
+   console.log(f);
+    if(id==null || f!="1")
+    {
+     
+      delete sessionStorage['email'];
+      delete sessionStorage['uid'];
+      delete sessionStorage['flag'];
+      this.router.navigate(['/login']);
+    }
   }
 
   addQuestion(myForm)

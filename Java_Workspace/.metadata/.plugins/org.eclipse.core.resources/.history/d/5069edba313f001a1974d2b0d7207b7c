@@ -1,0 +1,81 @@
+package com.app.pojos;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+public class ScheduleTest {
+	private Integer scheduleId;
+	@DateTimeFormat( pattern = "yyyy:MM:dd")
+    private Date testDate;
+	private String testTime;
+	private User user;
+	
+	public ScheduleTest() {
+	System.out.println("Inside schedule test");
+	}
+
+	
+
+	public ScheduleTest(Date appDate, String testTime, User user) {
+		super();
+		this.appDate = appDate;
+		this.testTime = testTime;
+		this.user = user;
+	}
+
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	public Integer getScheduleId() {
+		return scheduleId;
+	}
+
+	public void setScheduleId(Integer scheduleId) {
+		this.scheduleId = scheduleId;
+	}
+
+	public Date getAppDate() {
+		return appDate;
+	}
+
+	public void setAppDate(Date appDate) {
+		this.appDate = appDate;
+	}
+
+	public String getTestTime() {
+		return testTime;
+	}
+
+	public void setTestTime(String testTime) {
+		this.testTime = testTime;
+	}
+
+	@JsonIgnore
+	@OneToOne
+	@JoinColumn(name="userSchT_id")
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	@Override
+	public String toString() {
+		return "ScheduleTest [scheduleId=" + scheduleId + ", appDate=" + appDate + ", testTime=" + testTime + "]";
+	}
+	
+	
+
+}

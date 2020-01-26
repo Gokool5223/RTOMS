@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sun.xml.internal.ws.client.sei.ResponseBuilder.DocLit;
 
 @Entity
 public class User 
@@ -18,6 +19,11 @@ public class User
 	 //private List<Question> question;
 	 //@JsonIgnore
 	 private Application application;
+	 
+	 private ScheduleTest scheduleTest;
+	 
+	 private List<Document_List> doc_list;
+	 
 	 
 	 
 	 
@@ -113,13 +119,20 @@ public class User
 	public TestResult getTestResult() {
 		return testResult;
 	}
-
-
-
-
-
+	
+	
 	public void setTestResult(TestResult testResult) {
 		this.testResult = testResult;
+	}
+	
+	@OneToOne(mappedBy="userst",cascade=CascadeType.ALL)
+	public ScheduleTest getScheduleTest() {
+		return scheduleTest;
+	}
+
+
+	public void setScheduleTest(ScheduleTest scheduleTest) {
+		this.scheduleTest = scheduleTest;
 	}
 
 	@JsonIgnore
@@ -171,6 +184,30 @@ public class User
 	}
 
 
+	
+
+
+
+	@OneToMany(mappedBy = "user",cascade = CascadeType.ALL,orphanRemoval = true,fetch = FetchType.EAGER)
+	public List<Document_List> getDoc_list() {
+		return doc_list;
+	}
+
+
+
+
+
+
+
+
+	public void setDoc_list(List<Document_List> doc_list) {
+		this.doc_list = doc_list;
+	}
+
+
+
+
+
 
 
 
@@ -181,7 +218,17 @@ public class User
 				+ responses + "]";
 	}
 
+	public void addDocument(Document_List doc)
+	{
+		doc_list.add(doc);
+		doc.setUser(this);
+	}
 
+	public void removeDoc(Document_List doc)
+	{
+		doc_list.remove(doc);
+		doc.setUser(null);
+	}
 
 
 

@@ -27,9 +27,11 @@ export class AppComponent {
     this.router.navigate(['login']);
 
     alert("You Logout Successfully");
-   
+    this.emservice.logInBtnSwitch(false);
     this.isLogin=false;
     delete sessionStorage['email'];
+    delete sessionStorage['uid'];
+    delete sessionStorage['flag'];
   }
   
 }

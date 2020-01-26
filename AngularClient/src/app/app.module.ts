@@ -29,6 +29,11 @@ import { UpdateRtoComponent } from './update-rto/update-rto.component';
 import { ManageRtoComponent } from './manage-rto/manage-rto.component';
 import { ApplicationFormComponent } from './application-form/application-form.component';
 import { UpdateApplicationformComponent } from './update-applicationform/update-applicationform.component';
+import { ScheduleTestComponent } from './schedule-test/schedule-test.component';
+import { UploadDocumentComponent } from './upload-document/upload-document.component';
+import { SendLicenseComponent } from './send-license/send-license.component';
+import { GetApplicationComponent } from './get-application/get-application.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 
 
 
@@ -58,6 +63,11 @@ import { UpdateApplicationformComponent } from './update-applicationform/update-
     ManageRtoComponent,
     ApplicationFormComponent,
     UpdateApplicationformComponent,
+    ScheduleTestComponent,
+    UploadDocumentComponent,
+    SendLicenseComponent,
+    GetApplicationComponent,
+    ResetpasswordComponent,
     
    
     
@@ -78,6 +88,7 @@ import { UpdateApplicationformComponent } from './update-applicationform/update-
       {path:"confirm-otp",component:ConfirmOtpComponent},
       {path:"newpassword",component:NewpasswordComponent},
       {path:"admin-Home",component:AdminHomeComponent},
+              
       {path:"rto-Home",component:RtoHomeComponent},
       {path:"user-Home",component:UserHomeComponent},
       {path:"question-Paper",component:QuestionPaperComponent},
@@ -89,13 +100,16 @@ import { UpdateApplicationformComponent } from './update-applicationform/update-
       {path:"manageRto",component:ManageRtoComponent},
       {path:"fillApplicationForm",component:ApplicationFormComponent},
       {path:"updateApplicationForm",component:UpdateApplicationformComponent},
-
-
-
+      {path:"scheduleTest",component:ScheduleTestComponent},
+      {path:"uploadDocument",component:UploadDocumentComponent},
+      {path:"sendLicense",component:SendLicenseComponent},
+      {path:"getapplication",component:GetApplicationComponent},
+      {path:"resetPassword",component:ResetpasswordComponent}
       
-
-
-      
+    
+     
+   
+     
     ])
   ],
   providers: [],

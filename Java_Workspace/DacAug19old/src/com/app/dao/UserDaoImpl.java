@@ -14,6 +14,7 @@ import com.app.pojos.Otp;
 import com.app.pojos.Question;
 import com.app.pojos.Response;
 import com.app.pojos.Role;
+import com.app.pojos.ScheduleTest;
 import com.app.pojos.User;
 
 @Service
@@ -206,11 +207,41 @@ System.out.println(u.getRole());
 
 
 	@Override
-	public Integer uploadDocument(Document_List doc) {
+	public Integer uploadDocument(Document_List doc,Integer userId) {
 		// TODO Auto-generated method stub
-		return (Integer) sf.getCurrentSession().save(doc);
-		
+//		return (Integer) sf.getCurrentSession().save(doc);
+		User user=sf.getCurrentSession().get(User.class, userId);
+		user.addDocument(doc);
+		return null;
 	}
+
+
+
+
+	@Override
+	public Integer scheduleTest(ScheduleTest sTest, Integer id) {
+//		System.out.println(sTest);
+//		System.out.println("id"+id);
+		String jpql="select u from User u where u.userId=:x";
+	User u=sf.getCurrentSession().createQuery(jpql,User.class).setParameter("x",id).getSingleResult();
+//		ScheduleTest sTest2=new ScheduleTest();
+//		sTest2.setTestDate(sTest.getTestDate());
+//		sTest2.setTestTime(sTest.getTestTime());
+//		sTest2.setUserst(u);
+//		System.out.println(u);
+//		u.setScheduleTest(sTest);
+//		System.out.println(sTest);
+//		sf.getCurrentSession().update(u);
+//		
+//		//String jpql="insert t into Schedule Test t where userSchT_id=:x";
+//		System.out.println(sTest);
+		
+		sTest.setUserst(u);
+		
+		
+		return (Integer) sf.getCurrentSession().save(sTest);
+	}
+	
 
 
 

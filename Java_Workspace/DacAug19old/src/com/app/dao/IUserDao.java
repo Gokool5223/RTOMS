@@ -7,6 +7,7 @@ import com.app.pojos.Document_List;
 import com.app.pojos.Otp;
 import com.app.pojos.Question;
 import com.app.pojos.Response;
+import com.app.pojos.ScheduleTest;
 import com.app.pojos.User;
 
 public interface IUserDao 
@@ -46,7 +47,10 @@ public interface IUserDao
 	// to upload document
 	
 	
-	public Integer uploadDocument(Document_List doc);
+	public Integer uploadDocument(Document_List doc,Integer userId);
+	
+	//Schedule Test
+	Integer scheduleTest(ScheduleTest sTest,Integer id);
 	
 
 }

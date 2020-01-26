@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../admin.service';
 import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-manage-exam-module',
@@ -12,7 +13,7 @@ export class ManageExamModuleComponent implements OnInit {
   data;
   questions:any=[];
 
-  constructor(private service:AdminService,private router:Router) 
+  constructor(private service:AdminService,private router:Router ) 
   { 
        this.getdata();
   }
@@ -56,8 +57,23 @@ export class ManageExamModuleComponent implements OnInit {
 
 
   ngOnInit() {
+    var id=sessionStorage.getItem('uid');
+    var f=sessionStorage['userFlag'];
+
+    console.log(id);
+   console.log(f);
+    if(id==null || f!="1")
+    {
+     
+      delete sessionStorage['email'];
+      delete sessionStorage['uid'];
+      delete sessionStorage['flag'];
+      this.router.navigate(['/login']);
+    }
+    if(this)
 
     this.service.getQuestions().subscribe((res)=>{
+
       this.questions=res;
       console.log(this.questions);
     })

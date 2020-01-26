@@ -1,0 +1,17 @@
+<h1 style="text-align: center">Upload Your Documents here...</h1>
+<br>
+<br>
+<br>
+<br>
+
+<form #docForm="ngForm" (ngSubmit)="upload(docForm)" role="form">
+
+  <div class="form-group">
+    Documents
+    <input type="file" name="Doc_Name"  ngModel class="form-control" id="document" placeholder="Input field">
+  </div>
+
+  
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

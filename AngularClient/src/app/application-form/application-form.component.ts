@@ -12,6 +12,19 @@ export class ApplicationFormComponent implements OnInit {
   constructor(public service:UserService,public router:Router) { }
 
   ngOnInit() {
+    var id=sessionStorage.getItem('uid');
+    var f=sessionStorage['userFlag'];
+
+    console.log(id);
+   console.log(f);
+    if(id==null || f!="3")
+    {
+     
+      delete sessionStorage['email'];
+      delete sessionStorage['uid'];
+      delete sessionStorage['flag'];
+      this.router.navigate(['/login']);
+    }
   }
 
   addApplication(appForm)

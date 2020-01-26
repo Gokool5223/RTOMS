@@ -9,29 +9,39 @@ import { EmtrService } from '../emtr.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  g: string;
 
   constructor(private userService:UserService,
     private router:Router,private emService:EmtrService) { }
 
     login(loginForm)
     {
-      console.log(loginForm);
+    //  console.log(loginForm);
       let data = loginForm.form.value;
      this.userService.login(data).subscribe(res=>{
       // debugger
       sessionStorage['email']=res['email'];
       sessionStorage['uid']=res['userId'];
-      console.log(res.toString())
+      this.g=sessionStorage.getItem('uid');
+      sessionStorage['isLogin']=true;
       this.emService.logInBtnSwitch(true);//
       if(res['role']=='ADMIN')
       {
+        sessionStorage['userFlag']="1";
         this.router.navigate(['admin-Home']);
-      }else if(res['role']=='RTO')
+
+      }else if(res['role']=='RTO'&& this.g!=null)
       {
+        sessionStorage['userFlag']="2";
         this.router.navigate(['rto-Home']);
-      }else if(res['role']=='USER')
+      }else if(res['role']=='USER'&& this.g!=null)
       {
+        sessionStorage['userFlag']="3";
         this.router.navigate(['user-Home']);
+      }else
+      {
+        this.router.navigate(['login']);
+
       }
       
   

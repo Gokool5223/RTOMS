@@ -159,31 +159,22 @@
   <core validator-id="jboss.cdi.core"/>
   <el>
    <linked-el length="23" name="%0" offset="968" path="%1"/>
-   <linked-el length="23" name="%0" offset="968" path="%2"/>
+   <linked-el length="22" name="%2" offset="935" path="%1"/>
+   <linked-el length="23" name="%3" offset="968" path="%1"/>
    <linked-el length="22" name="%3" offset="935" path="%1"/>
-   <linked-el length="22" name="%3" offset="935" path="%2"/>
-   <linked-el length="23" name="%4" offset="968" path="%1"/>
-   <linked-el length="22" name="%4" offset="935" path="%1"/>
+   <linked-el length="18" name="%3" offset="906" path="%1"/>
+   <linked-el length="17" name="%3" offset="883" path="%1"/>
    <linked-el length="18" name="%4" offset="906" path="%1"/>
-   <linked-el length="17" name="%4" offset="883" path="%2"/>
-   <linked-el length="22" name="%4" offset="935" path="%2"/>
-   <linked-el length="23" name="%4" offset="968" path="%2"/>
-   <linked-el length="18" name="%4" offset="906" path="%2"/>
-   <linked-el length="17" name="%4" offset="883" path="%1"/>
-   <linked-el length="18" name="%5" offset="906" path="%1"/>
-   <linked-el length="18" name="%5" offset="906" path="%2"/>
-   <linked-el length="17" name="%6" offset="883" path="%2"/>
-   <linked-el length="17" name="%6" offset="883" path="%1"/>
+   <linked-el length="17" name="%5" offset="883" path="%1"/>
   </el>
  </validation>
  <aliases>
   <alias path="jdbc.password" value="%0"/>
   <alias path="/DacAug19old/resources/hibernate-persistence.xml" value="%1"/>
-  <alias path="jdbc.username" value="%3"/>
-  <alias path="/DacAug19old/build/resources/hibernate-persistence.xml" value="%2"/>
-  <alias path="jdbc" value="%4"/>
-  <alias path="jdbc.url" value="%5"/>
-  <alias path="jdbc.driver" value="%6"/>
+  <alias path="jdbc.username" value="%2"/>
+  <alias path="jdbc" value="%3"/>
+  <alias path="jdbc.url" value="%4"/>
+  <alias path="jdbc.driver" value="%5"/>
  </aliases>
  <includes/>
  <uris/>

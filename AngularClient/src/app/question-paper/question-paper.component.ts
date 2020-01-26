@@ -70,6 +70,7 @@ console.log(this.y);
       this.router.navigate(['user-Home']);
     });
   }
+  
 
   // setAnswer(ans,questionId,i){
   //   console.log(ans+" "+questionId+" "+i);
@@ -102,6 +103,19 @@ console.log(this.y);
 
   ngOnInit() 
   {
+    var id=sessionStorage.getItem('uid');
+    var f=sessionStorage['userFlag'];
+
+    console.log(id);
+   console.log(f);
+    if(id==null || f!="3")
+    {
+     
+      delete sessionStorage['email'];
+      delete sessionStorage['uid'];
+      delete sessionStorage['flag'];
+      this.router.navigate(['/login']);
+    }
     this.service.getQuestions().subscribe((res)=>{
       this.questions=res;
       console.log(this.questions);

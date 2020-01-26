@@ -35,6 +35,7 @@ import com.app.pojos.Document_List;
 import com.app.pojos.Otp;
 import com.app.pojos.Question;
 import com.app.pojos.Response;
+import com.app.pojos.ScheduleTest;
 import com.app.pojos.User;
 
 @CrossOrigin(allowedHeaders = "*")
@@ -96,7 +97,10 @@ public class UserController
 			hs.setAttribute("user", user);
 			if(user !=null)
 			{
-				int otp = iuserDao.generateOtp();
+				Otp otp= new Otp();
+				
+				otp.setOtp(iuserDao.generateOtp()); 
+				iuserDao.saveOtp(otp);
 				hs.setAttribute("OTP", otp);
 				String msg="Your one time password for forgot password is = "+otp;
 				SimpleMailMessage mailMessage = new SimpleMailMessage();
@@ -149,7 +153,7 @@ public class UserController
 	@PostMapping("/resetpassword")
 	public boolean resetPassword(@RequestBody User user)
 	{
-		//System.out.println(user.getPassword());
+		System.out.println(user.getPassword());
 		//System.out.println(user.getEmail());
 		iuserDao.resetPassword(user);
 		return true;
@@ -200,7 +204,8 @@ public class UserController
 
 	@PostMapping("/upload")
 	public ResponseEntity<?> uploadDocument(@RequestParam String abc, @RequestParam String userId,@RequestParam CommonsMultipartFile file) {
-		String path="/home/sunbeam/ProjectWorkSpace/java_project/DCent/WebContent/files";
+		String path="/home/sunbeam/Desktop/RTOMS/Java_Workspace/DacAug19old/WebContent/files";
+		
 		String fileName = file.getOriginalFilename();
 		byte[] bytes = file.getBytes();
 		try {
@@ -216,7 +221,9 @@ public class UserController
 		System.out.println("image : " + FilePath);
 
 		Document_List doc = new Document_List(fileName, FilePath);
-		iuserDao.uploadDocument(doc);
+//		iuserDao.uploadDocument(doc);
+		iuserDao.uploadDocument(doc,Integer.parseInt(userId));
+		
 		String downloadlink = file.getOriginalFilename();
 		System.out.println(downloadlink);
 		return new ResponseEntity<String>(downloadlink, HttpStatus.OK);
@@ -230,6 +237,68 @@ public class UserController
 		iuserDao.updateUserApplication(a);
 		return 1;
 	}
+	
+	@PostMapping("/scheduleTest")
+	public Integer schTest(@RequestBody ScheduleTest sTest,@RequestParam int id)
+	{
+		System.out.println(id);
+		System.out.println(sTest.getTestDate());
+		System.out.println(sTest.getTestTime());
+		int hrs=sTest.getTestDate().getHours();
+		int min=sTest.getTestDate().getMinutes();
+		System.out.println(hrs+":"+min);
+		
+		 if(hrs >=0 & hrs<5)
+		    {
+		    
+		    	 System.out.println("bhai");
+		    	String time= hrs+18+":"+(min+30);
+		      System.out.println(time);    
+		    }
+		    else
+		    {
+		    if(hrs < 12)
+		    {
+		    if(min<30)
+		    {
+		    	System.out.println("dingdong");
+		    	String time= hrs-6+":"+(min+30);
+		    	 sTest.setTestTime(time);
+		    }
+		    else
+		    {
+		   
+//		    	String time= hrs-6+":"+(min+30);
+//		    	 app.setAppTime(time);
+		    	System.out.println("hey bro");
+		    	 String time= hrs-5+":"+(min-30);
+		    	 sTest.setTestTime(time);
+		    }
+		    }
+		    else
+		    {
+		    	System.out.println("hello");
+			    if(min<30)
+			    {
+			    	String time= hrs-6+":"+(min+30);
+			    	 sTest.setTestTime(time);
+			    }
+			    else
+			    {
+//			    	String time= hrs-6+":"+(min+30);
+//			    	 app.setAppTime(time);
+			    	System.out.println("hey bro");
+			    	 String time= hrs-5+":"+(min-30);
+			    	 sTest.setTestTime(time);
+			    }
+		    }
+		   
+			
+	     }
+		 return iuserDao.scheduleTest(sTest, id);
+		
+	}
+	
 	
 	
 

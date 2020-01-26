@@ -1,0 +1,75 @@
+
+<h1 style="text-align: center;">Application Form</h1>
+
+<br>
+<br>
+
+  
+<form  role="form" style="width: 40% ; margin: auto;">
+  <div class="form-group">
+    Application Id
+   <input type="text" name="appId" ngModel class="form-control" [(ngModel)]="AppId" id="appId" placeholder="" disabled>
+ </div>
+
+  <div class="form-group">
+     Address
+    <input type="text" name="address" ngModel class="form-control" [(ngModel)]="Address" id="address" placeholder="Enter your address"disabled>
+  </div>
+
+  <div class="form-group">
+   Aadhar Number
+    <input type="text" name="aadharNo" ngModel class="form-control" [(ngModel)]="AadharNo" id="aadharNo" placeholder="Enter your Aadhar Number" disabled>
+  </div>
+  
+  <div class="form-group">
+    Gender
+    <input type="radio" ngModel class="form-control" [(ngModel)]="Gender"  name="gender" value="MALE" disabled checked>MALE<br >
+    <input type="radio" ngModel class="form-control" [(ngModel)]="Gender"  name="gender" value="FEMALE" disabled >FEMALE<br>
+    <input type="radio" ngModel class="form-control" [(ngModel)]="Gender" name="gender" value="OTHER"disabled >OTHER
+
+  </div>
+  
+  <div class="form-group">
+        Date of Birth
+       <input type="Date" name="dob" ngModel class="form-control" [(ngModel)]="DOB"  id="dob" disabled>
+  </div>
+
+  <div class="form-group">
+      Blood Group
+    <select name="ToSelect" ngModel="data.ToSelect" class="form-control" [(ngModel)]="BloodGroup" >
+      <option  name="bloodGroup" value="O"disabled>O</option>
+      <option  name="bloodGroup" value="A" disabled>A</option>
+      <option  name="bloodGroup" value="B" disabled>B</option>
+      <option  name="bloodGroup" value="AB" disabled>AB</option>
+    </select>
+    </div>
+
+  <div class="form-group">
+    Qualification
+    <input type="text" name="qualification" ngModel class="form-control" [(ngModel)]="Qualification"  id="qualification" placeholder="Enter your Qualification" disabled>
+  </div>
+
+  <div class="form-group">
+    Document details
+    <input  type="file" id="document" ngModel class="form-control" [(ngModel)]="Document"  name="document" disabled>
+  </div>
+
+  <div class="form-group">
+    Date of Application
+    <input type="date" name="appDate" ngModel class="form-control" [(ngModel)]="AppDate"  id="appDate" disabled >
+  </div>
+  
+  <div class="form-group">
+    Vehicle Type
+    <br>
+    <input type="checkbox" ngModel class="form-control"  [(ngModel)]="VehicleType"  name="vehicleType" value="TWOWHEELER"disabled> TWOWHEELER
+    <input type="checkbox" ngModel class="form-control" [(ngModel)]="VehicleType" name="vehicleType" value="FOURWHEELER" disabled> FOURWHEELER<br>
+  </div>
+
+  <button type="submit" class="btn btn-success" (click)="goBack()">SUBMIT</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button type="submit" class="btn btn-danger" (click)="cancel()">Cancel</button>
+  
+</form>
+
+
+
