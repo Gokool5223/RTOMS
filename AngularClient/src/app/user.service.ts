@@ -94,10 +94,18 @@ export class UserService {
     return this.http.post("http://localhost:8080/DacAug19old/user/scheduleTest?id="+y,app);
 
   }
-  upload(data)
+  upload(doc,file)
   {
+   
     console.log("inside User sevice");
-    return this.http.post("http://localhost:8080/DacAug19old/user/upload",data);
+    console.log(doc);
+    console.log(file);
+
+    const formData = new FormData();
+    formData.append('abc' , doc['doc_Name']);
+    formData.append('file' , file);
+    formData.append('userId',sessionStorage['uid']);
+    return this.http.post("http://localhost:8080/DacAug19old/user/upload",formData);
 
   }
 

@@ -8,22 +8,35 @@ import { UserService } from '../user.service';
   styleUrls: ['./upload-document.component.css']
 })
 export class UploadDocumentComponent implements OnInit {
+  id;
+  name;
+ 
 
-  constructor(public router:Router,public service:UserService) { }
-  upload(docForm)
-  {
-    let data=docForm.form.value;
-    this.service.upload(data).subscribe((res)=>
-    {
-      alert("document uploaded successfully");
-      this.router.navigate(['user-Home'])
-      
-    },(err)=>{
-  
-      alert("Something went wrong");
-     })
-
+  constructor(public router:Router,public service:UserService) {
+    console.log(sessionStorage['uid'])
+    this.id=sessionStorage['ud'];
+    this.name="";
+    
+   }
+   file: any;
+   onFileUpload(event) {
+    console.log(event);
+    this.file = event.target.files[0];
+    console.log(this.file);
   }
+
+  fileupload(myDoc) {
+    const formdata = myDoc.form.value;
+    
+    console.log(formdata);
+    this.service.upload(formdata,this.file).subscribe(res=>{
+      console.log(res);
+      this.router.navigate(['user-Home'])
+    },err=>{
+      console.log(err);
+    });
+  }
+
 
   ngOnInit() {
     var id=sessionStorage.getItem('uid');

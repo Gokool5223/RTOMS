@@ -9,6 +9,10 @@ import { Router } from '@angular/router';
 export class UserHomeComponent implements OnInit {
 
   constructor(public router:Router) { }
+  senddata(userid)
+  {
+    this.router.navigate(['updateApplication',{'userId':userid}]);
+  }
 
   ngOnInit() {
     var id=sessionStorage.getItem('uid');

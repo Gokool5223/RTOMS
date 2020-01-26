@@ -1,17 +1,32 @@
-<h1 style="text-align: center">Upload Your Documents here...</h1>
-<br>
-<br>
-<br>
-<br>
-
-<form #docForm="ngForm" (ngSubmit)="upload(docForm)" role="form">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+<form #myDoc="ngForm" (ngSubmit)="fileupload(myDoc)" role="form" enctype="multipart/form-data">
 
   <div class="form-group">
-    Documents
-    <input type="file" name="Doc_Name"  ngModel class="form-control" id="document" placeholder="Input field">
+   Doucment Name
+    <input type="text" class="form-control" ngModel name="doc_Name" value="" id="" placeholder="Input field">
   </div>
+  <div class="form-group">
+    Upload Document
+     <input (change)="onFileUpload($event)" type="file"  class="form-control" name="filepath" placeholder="Input field">
+   </div>
+   <!-- <div class="form-group" >
+   User Id
+     <input type="text" class="form-control" name="doc_Name" [(ngModel)]="id" id="" placeholder="Input field">
+   </div> -->
 
   
 
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+</body>
+</html>
+

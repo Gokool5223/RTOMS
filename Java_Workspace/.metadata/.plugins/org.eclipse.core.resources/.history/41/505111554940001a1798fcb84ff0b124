@@ -203,7 +203,7 @@ public class UserController
 	
 
 	@PostMapping("/upload")
-	public String uploadDocument(@RequestParam String abc, @RequestParam String userId,@RequestParam CommonsMultipartFile file) {
+	public ResponseEntity<?> uploadDocument(@RequestParam String abc, @RequestParam String userId,@RequestParam CommonsMultipartFile file) {
 		String path="/home/sunbeam/Desktop/RTOMS/Java_Workspace/DacAug19old/WebContent/files";
 		System.out.println(userId);
 		String fileName = file.getOriginalFilename();
@@ -226,7 +226,7 @@ public class UserController
 		
 		String downloadlink = file.getOriginalFilename();
 		System.out.println(downloadlink);
-		return "uploaded";
+		return new ResponseEntity<String>(downloadlink, HttpStatus.OK);
 	}
 	
 	

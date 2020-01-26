@@ -1,41 +1,79 @@
 <div class="table-responsive">
-<table class="table table-hover">
-    <tr>
-      <td> <img src="assets/images/logo1.jpeg" style="text-align: left ; height:100px; width: 100px;"></td>
-      <td >
-          <h1 style="text-align: center; color: slateblue; font-family: fantasy; font-weight: bold; font-size: 60px; ">
-              Welcome to {{ title }}
-            </h1>
-      </td>
-    </tr>
-  </table> 
-</div>  
-<nav class="navbar navbar-default navbar-static-top" role="navigation" >
+    <table class="table table-hover">
+        <tr>
+          <td> 
+              <img src="assets/images/logo1.jpeg" style="text-align: left ; height:100px; width: 100px;"></td>
+          <td >
+              <h1 style="text-align: center; color: slateblue; font-family: fantasy; font-weight: bold; font-size: 60px; ">
+                  Welcome to {{ title }}
+                </h1>
+          </td>
+        </tr>
+      </table> 
+    </div>  
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" >
+        
+        <ul class="nav navbar-nav" style="height: 100%; width: 100%; background-color: black; color:white;">
+            <li>
+                <a routerLink="">Home</a>
+            </li>
+            <li>
+                <a routerLink="/aboutus">About Us</a>
+            </li>
+            <li>
+                <a routerLink="/contactus">Contact Us</a>
+            </li>
+            <li>
+                <a routerLink="/rules">Rules & regulations</a>
+            </li>
+            <li *ngIf="!isLogin">
+                <a routerLink="/login">Login</a>
+            </li>
     
-    <ul class="nav navbar-nav" style="height: 100%; width: 100%; background-color: black; color:white;">
-        <li>
-            <a routerLink="">Home</a>
-        </li>
-        <li>
-            <a routerLink="/aboutus">About Us</a>
-        </li>
-        <li>
-            <a routerLink="/contactus">Contact Us</a>
-        </li>
-        <li>
-            <a routerLink="/rules">Rules & regulations</a>
-        </li>
-        <li *ngIf="!isLogin">
-            <a routerLink="/login">Login</a>
-        </li>
-
-        <li *ngIf="isLogin">
-            <a (click)="logout()">Logout</a>
-        </li>
-        <li>
-            <a routerLink="/signup">Sign Up</a>
-        </li>
-    </ul>
-
-</nav>
-<router-outlet></router-outlet>
+            <li *ngIf="isLogin">
+                <a (click)="logout()">Logout</a>
+            </li>
+            <li>
+                <a routerLink="/signup">Sign Up</a>
+            </li>
+        </ul>
+    
+    </nav>
+    <router-outlet></router-outlet>
+    
+    <!-- <div >
+            <footer class="site-footer">
+                    <div class="container">
+                      
+                        <div class="row">
+                          <div class="col-xs-12 col-sm-6">
+                                        <p>  Copyright &copy; 2020 Sunbeam Karad.  All Rights Reserved</p>
+                          </div>
+                          <div class="col-xs-12 col-sm-6">
+                            <ul class="social-icon">
+                              <li><a href="#" class="fa fa-twitter"></a></li>
+                              <li><a href="#" class="fa fa-facebook"></a></li>
+                              <li><a href="#" class="fa fa-dribbble"></a></li>
+                              <li><a href="#" class="fa fa-instagram"></a></li>
+                              <li><a href="#" class="fa fa-github"></a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </footer>
+    </div> -->
+    
+    
+    <section id="lab_social_icon_footer">
+            <!-- Include Font Awesome Stylesheet in Header -->
+            <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+            <div class="container">
+                    <div class="text-center center-block">
+                            <p>  Copyright &copy; 2020 Sunbeam Karad.  All Rights Reserved</p>
+                            <a href=""><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+                            <a href=""><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+                            <a href=""><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+                            <a href=""><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+                </div>
+            </div>
+     </section>
