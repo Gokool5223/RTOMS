@@ -15,7 +15,7 @@ export class UpdateRtoComponent implements OnInit {
   aduserName: any;
   ademail: any;
   adpassword: any;
-
+ cancel:any;
 
   constructor(public service:AdminService, public router:Router,public route:ActivatedRoute) { 
     this.x=this.route.snapshot.paramMap.get("userId");

@@ -3,6 +3,7 @@ package com.app.dao;
 import java.util.List;
 import java.util.Random;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -144,6 +145,7 @@ System.out.println(u.getRole());
 
 	@Override
 	public User getUserDetails(int userId) {
+		
 		return sf.getCurrentSession().get(User.class, userId);
 	}
 
@@ -151,9 +153,22 @@ System.out.println(u.getRole());
 
 //Application 
 	@Override
-	public Integer insertApplicationDetails(Application application) {
+	public Integer insertApplicationDetails(Application application,int userId) {
+		User user=new User();
 		
-		return (Integer) sf.getCurrentSession().save(application);
+		user.setUserId(userId);
+	
+		Application app=new Application();
+		app=application;
+		app.setUser(user);
+		
+		
+		sf.getCurrentSession().save(app);
+		
+		
+	
+		
+		return 1;
 	}
 
 

@@ -35,7 +35,7 @@ public interface IUserDao
 	
 	//Application Details
 	
-	public Integer insertApplicationDetails(Application application);
+	public Integer insertApplicationDetails(Application application,int user_id);
 	//public Application getApplicantDetails(int user_id);
 	public User getApplicationDetails(int user_id);
 	

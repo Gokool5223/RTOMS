@@ -24,7 +24,7 @@ export class UpdateApplicationformComponent implements OnInit {
   result: any;
   data: any;
   AppId: any;
-
+ cancel:any;
   constructor(public service:UserService,public router:Router) { 
    // this.x=this.reout.snapshot.paramMap.get("userId");
     this.y=parseInt(sessionStorage.getItem('uid'));

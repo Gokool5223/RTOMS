@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-home.component.css']
 })
 export class UserHomeComponent implements OnInit {
-
+user:any;
   constructor(public router:Router) { }
   senddata(userid)
   {

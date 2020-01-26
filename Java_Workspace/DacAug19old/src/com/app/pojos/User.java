@@ -223,6 +223,7 @@ public class User
 		doc_list.add(doc);
 		doc.setUser(this);
 	}
+	
 
 	public void removeDoc(Document_List doc)
 	{

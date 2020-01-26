@@ -23,6 +23,7 @@ export class UpdateQuestionComponent implements OnInit {
   adop4: any;
   adop2: any;
   adquestion: any;
+  cancel:any;
 
   constructor(public service:AdminService,public router:Router,public route:ActivatedRoute) 
   {

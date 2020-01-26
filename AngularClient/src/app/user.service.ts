@@ -15,8 +15,9 @@ export class UserService {
 
   }
 
-  addapplication(app){
-    return this.http.post("http://localhost:8080/DacAug19old/user/addApplication",app);
+  addapplication(app,uid){
+    console.log(app);
+    return this.http.post("http://localhost:8080/DacAug19old/user/addApplication/"+uid,app);
 
   }
   getApplication(appId){
@@ -106,6 +107,7 @@ export class UserService {
     formData.append('file' , file);
     formData.append('userId',sessionStorage['uid']);
     return this.http.post("http://localhost:8080/DacAug19old/user/upload",formData);
+    
 
   }
 

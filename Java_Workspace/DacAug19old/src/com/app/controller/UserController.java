@@ -192,11 +192,11 @@ public class UserController
 	}
 	
 	//Application
-	@PostMapping("/addApplication")
-	public Integer addApplication(@RequestBody Application application,HttpServletRequest request)
+	@PostMapping("/addApplication/{userId}")
+	public Integer addApplication(@RequestBody Application application,@PathVariable int userId,HttpServletRequest request)
 	{
 		System.out.println(application);
-		iuserDao.insertApplicationDetails(application);
+		iuserDao.insertApplicationDetails(application,userId);
 		
 		return 1;
 	}

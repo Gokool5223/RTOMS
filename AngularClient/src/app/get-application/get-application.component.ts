@@ -24,7 +24,7 @@ export class GetApplicationComponent implements OnInit {
   result: any;
   data: any;
   AppId: any;
-
+  cancel:any;
   constructor(public service:UserService,public router:Router,public route:ActivatedRoute) {
     this.x=this.route.snapshot.paramMap.get("userId");
   this.service.getUser(this.x).subscribe((res)=>
