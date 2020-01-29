@@ -61,12 +61,6 @@ public class RtoDaoImpl implements IRtoDao
 		
 		return sf.getCurrentSession().get(User.class,userId);
 	}
-
-
-	@Override
-	public User getMarks(int userId) {
-		return sf.getCurrentSession().get(User.class,userId);
-	}
 	
 
 }

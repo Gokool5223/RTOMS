@@ -12,6 +12,7 @@ export class GetApplicationComponent implements OnInit {
   y: any;
   user={};
   app={};
+  test={};
   Address: any;
   AadharNo: any;
   AppDate: any;
@@ -25,14 +26,18 @@ export class GetApplicationComponent implements OnInit {
   data: any;
   AppId: any;
   cancel:any;
+  Score: any;
   constructor(public service:UserService,public router:Router,public route:ActivatedRoute) {
     this.x=this.route.snapshot.paramMap.get("userId");
   this.service.getUser(this.x).subscribe((res)=>
     {
       console.log(res);
       this.app=res['application'];
+      this.test=res['testResult']
       this.AppId=this.app["appId"];
       console.log(this.AppId);
+      this.Score=this.test["score"];
+      console.log(this.Score);
       this.Address=this.app['address'];
       this.AadharNo=this.app['aadharNo'];
       this.AppDate=this.app['appDate'];
